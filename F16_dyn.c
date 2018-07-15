@@ -226,7 +226,7 @@
 #define cref        3.45
 #define xcg         0.3
 #define xcgr        0.35
-#define heng        216.9 /* engine angular momentum, assumed fixed */
+#define heng        216.9 /* engine angular momentum, assumed fixed */ //160 slug-ft^2/s
 
 /* Additional parameters */
 #define rtd           57.29577951
