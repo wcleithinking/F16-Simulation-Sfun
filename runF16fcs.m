@@ -18,8 +18,8 @@ fi_flag_Simulink = 1;
 
 %% Trim aircraft to desired altitude and velocity
 %%
-altitude =6000;
-Mach = 0.5;
+altitude =10000;
+Mach = 0.8;
 c = sqrt(1.4*287.06*(288.15-0.0065*altitude));
 velocity = Mach*c;
 simtime = 30;
