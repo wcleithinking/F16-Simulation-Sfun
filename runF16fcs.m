@@ -18,11 +18,11 @@ fi_flag_Simulink = 1;
 
 %% Trim aircraft to desired altitude and velocity
 %%
-altitude =10000;
-Mach = 0.8;
+altitude = 9144;
+Mach = 0.6;
 c = sqrt(1.4*287.06*(288.15-0.0065*altitude));
 velocity = Mach*c;
-simtime = 30;
+simtime = 80;
 
 %% Initial Conditions for trim routine.
 %================================================
@@ -76,6 +76,7 @@ while iter == 1
     disp(['Vel.   = ' num2str(xu(1)) ' m/s'])
     disp(['pow    = ' num2str(xu(14)) ' %'])
     flag = input('Continue trim rountine iterations? (y/n):  ','s');
+    %flag = 'n';
     if flag == 'n'
         iter = 0;
     end 
