@@ -125,4 +125,4 @@ time_failure = 200;
 size_failure = 0.125*21.5;  %0, 0.125, 0.25, 0.5
 sign_failure = -1;
 
-sim('F16_fcs111');
+sim('F16_wclei');

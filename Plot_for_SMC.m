@@ -2,7 +2,7 @@
 %% 
 FontSize = 14;
 
-figure('name','The tracking results under AQSMC')
+figure('name','The tracking results of AOA under AQSMC')
 subplot(2,1,1)
 plot(simout_alpha.time,50*ones(1,length(simout_alpha.time)),'r-.','linewidth',4); hold on;
 plot(simout_alpha.time,simout_alpha.signals.values,'b-','linewidth',2); hold on;
@@ -23,7 +23,7 @@ figure('name','The control input under AQSMC')
 subplot(2,1,1)
 plot(simout_dele.time,25*ones(1,length(simout_dele.time)),'r-.','linewidth',4); hold on;
 plot(simout_dele.time,-25*ones(1,length(simout_dele.time)),'k-.','linewidth',4); hold on;
-plot(simout_dele.time,180/pi*simout_dele.signals.values,'b-','linewidth',2); hold on;
+plot(simout_dele.time,simout_dele.signals.values,'b-','linewidth',2); hold on;
 grid on;
 xlabel('Time [s]','interpreter','latex','fontsize',FontSize);
 title('Control Input: $\delta_{e}^{\textrm{ref}}$ (degree)','interpreter','latex','fontsize',FontSize);
