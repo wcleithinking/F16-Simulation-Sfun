@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.442"
+    ComputedModelVersion    "1.440"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -16,43 +16,7 @@ Model {
     HasTerminateEvent	    0
     IsExportFunctionModel   0
     NumParameterArguments   0
-    NumExternalFileReferences 14
-    ExternalFileReference {
-      Reference		      "aerolibconvert2/Angle Conversion"
-      Path		      "F16_fcs111/Display Results/Angle Conversion"
-      SID		      "292"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "aerolibconvert2/Angle Conversion"
-      Path		      "F16_fcs111/Display Results/Angle Conversion1"
-      SID		      "293"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "aerolibtransform2/Flat Earth to LLA"
-      Path		      "F16_fcs111/Display Results/Flat Earth to LLA"
-      SID		      "299"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "aerolibconvert/Velocity Conversion"
-      Path		      "F16_fcs111/Display Results/cascvt"
-      SID		      "316"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "aerolibobsolete/SinCos"
-      Path		      "F16_fcs111/Display Results/phidot thetadot psidot/SinCos"
-      SID		      "330"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "sharedtransform/Quaternions to Rotation Angles"
-      Path		      "F16_fcs111/Display Results/quaternions to Euler/Quaternions to Rotation Angles"
-      SID		      "338"
-      Type		      "LIBRARY_BLOCK"
-    }
+    NumExternalFileReferences 15
     ExternalFileReference {
       Reference		      "simulink_extras/Transformations/Degrees to\nRadians"
       Path		      "F16_fcs111/F-16/LEF/Degrees to Radians"
@@ -60,9 +24,51 @@ Model {
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
+      Reference		      "aerolibfltsims/Generate\nRun Script"
+      Path		      "F16_fcs111/Generate Run Script"
+      SID		      "287"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
       Reference		      "aerolibanimutils/Simulation Pace"
       Path		      "F16_fcs111/Simulation Pace"
       SID		      "288"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "aerolibconvert2/Angle Conversion"
+      Path		      "F16_fcs111/flightgear/Angle Conversion"
+      SID		      "292"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "aerolibconvert2/Angle Conversion"
+      Path		      "F16_fcs111/flightgear/Angle Conversion1"
+      SID		      "293"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "aerolibtransform2/Flat Earth to LLA"
+      Path		      "F16_fcs111/flightgear/Flat Earth to LLA"
+      SID		      "299"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "aerolibconvert/Velocity Conversion"
+      Path		      "F16_fcs111/flightgear/cascvt"
+      SID		      "316"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "aerolibobsolete/SinCos"
+      Path		      "F16_fcs111/flightgear/phidot thetadot psidot/SinCos"
+      SID		      "330"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "sharedtransform/Quaternions to Rotation Angles"
+      Path		      "F16_fcs111/flightgear/quaternions to Euler/Quaternions to Rotation Angles"
+      SID		      "338"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
@@ -104,9 +110,9 @@ Model {
     OrderedModelArguments   1
   }
   DiagnosticSuppressor	  "on"
-  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 1 8 0 0 0 0 6 0 0 1 0 49 F16_fcs111/Display Results/cascvt/U"
-  "nit Conversion 0 6 0 0 1 8 0 0 0 0 6 49 SimulinkFixedPoint:util:fxpParameterPrecisionLoss 0 0 0 6 0  11 Wenchao Lei "
-  "0 0 0 0 8 20180715 0 0 0 16 3 53 0 0"
+  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 1 8 0 0 0 0 6 0 0 1 0 44 F16_fcs111/flightgear/cascvt/Unit C"
+  "onversion 0 6 0 0 1 8 0 0 0 0 6 49 SimulinkFixedPoint:util:fxpParameterPrecisionLoss 0 0 0 6 0  11 Wenchao Lei 0 0 0"
+  " 0 8 20180715 0 0 0 16 3 53 0 0"
   Notes			  ""
   NotesPlugin		  "on"
   LogicAnalyzerGraphicalSettings ""
@@ -157,10 +163,10 @@ Model {
 	  $ObjectID		  5
 	  IsActive		  [1]
 	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "345"
+	  LoadSaveID		  "290"
 	  Extents		  [2355.0, 1101.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-27.572656250000023, 217.20000000000005]
+	  ZoomFactor		  [0.99999999999999989]
+	  Offset		  [646.00000000000307, 430.10000000000167]
 	}
 	Object {
 	  $ObjectID		  6
@@ -223,9 +229,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Wenchao Lei"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jul 22 10:12:16 2018"
-  RTWModifiedTimeStamp	  454155129
-  ModelVersionFormat	  "1.%<AutoIncrement:442>"
+  LastModifiedDate	  "Sun Jul 22 10:09:09 2018"
+  RTWModifiedTimeStamp	  454154980
+  ModelVersionFormat	  "1.%<AutoIncrement:440>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1458,1130 +1464,6 @@ Model {
     ZoomFactor		    "175"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "428"
-    Block {
-      BlockType		      SubSystem
-      Name		      "Display Results"
-      SID		      "290"
-      Ports		      [1]
-      Position		      [1010, 368, 1095, 422]
-      ZOrder		      -6
-      RequestExecContextInheritance off
-      System {
-	Name			"Display Results"
-	Location		[1913, -7, 3847, 1047]
-	Open			off
-	PortBlocksUseCompactNotation off
-	SetDomainSpec		off
-	DomainSpecType		"Deduce"
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"A4"
-	PaperUnits		"centimeters"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	Block {
-	  BlockType		  Inport
-	  Name			  "states"
-	  SID			  "291"
-	  Position		  [840, 818, 870, 832]
-	  ZOrder		  -1
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Angle Conversion"
-	  SID			  "292"
-	  Ports			  [1, 1]
-	  Position		  [1500, 559, 1545, 571]
-	  ZOrder		  -2
-	  ShowName		  off
-	  LibraryVersion	  "1.139"
-	  SourceBlock		  "aerolibconvert2/Angle Conversion"
-	  SourceType		  "Angle Conversion"
-	  SourceProductName	  "Aerospace Blockset"
-	  SourceProductBaseCode	  "AE"
-	  ContentPreviewEnabled	  off
-	  IU			  "deg"
-	  OU			  "rad"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Angle Conversion1"
-	  SID			  "293"
-	  Ports			  [1, 1]
-	  Position		  [1500, 534, 1545, 546]
-	  ZOrder		  -3
-	  ShowName		  off
-	  LibraryVersion	  "1.139"
-	  SourceBlock		  "aerolibconvert2/Angle Conversion"
-	  SourceType		  "Angle Conversion"
-	  SourceProductName	  "Aerospace Blockset"
-	  SourceProductBaseCode	  "AE"
-	  ContentPreviewEnabled	  off
-	  IU			  "deg"
-	  OU			  "rad"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant"
-	  SID			  "294"
-	  Position		  [1130, 942, 1160, 958]
-	  ZOrder		  -4
-	  ShowName		  off
-	  Value			  "0"
-	}
-	Block {
-	  BlockType		  Demux
-	  Name			  "Demux"
-	  SID			  "295"
-	  Ports			  [1, 7]
-	  Position		  [910, 608, 915, 1042]
-	  ZOrder		  -5
-	  BackgroundColor	  "black"
-	  ShowName		  off
-	  Outputs		  "[1 1 1 4 3 3 3]"
-	  DisplayOption		  "bar"
-	}
-	Block {
-	  BlockType		  Demux
-	  Name			  "Demux1"
-	  SID			  "296"
-	  Ports			  [1, 3]
-	  Position		  [1480, 721, 1485, 859]
-	  ZOrder		  -6
-	  BackgroundColor	  "black"
-	  ShowName		  off
-	  Outputs		  "3"
-	  DisplayOption		  "bar"
-	}
-	Block {
-	  BlockType		  Demux
-	  Name			  "Demux2"
-	  SID			  "297"
-	  Ports			  [1, 3]
-	  Position		  [1480, 938, 1485, 1022]
-	  ZOrder		  -7
-	  BackgroundColor	  "black"
-	  ShowName		  off
-	  Outputs		  "3"
-	  DisplayOption		  "bar"
-	}
-	Block {
-	  BlockType		  Demux
-	  Name			  "Demux3"
-	  SID			  "298"
-	  Ports			  [1, 2]
-	  Position		  [1475, 528, 1480, 577]
-	  ZOrder		  -8
-	  BackgroundColor	  "black"
-	  ShowName		  off
-	  Outputs		  "2"
-	  DisplayOption		  "bar"
-	}
-	Block {
-	  BlockType		  Demux
-	  Name			  "Demux4"
-	  SID			  "416"
-	  Ports			  [1, 3]
-	  Position		  [1480, 1050, 1485, 1170]
-	  ZOrder		  33
-	  ShowName		  off
-	  Outputs		  "3"
-	  DisplayOption		  "bar"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Flat Earth to LLA"
-	  SID			  "299"
-	  Ports			  [2, 2]
-	  Position		  [1195, 913, 1260, 962]
-	  ZOrder		  -9
-	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
-	  LibraryVersion	  "1.481"
-	  SourceBlock		  "aerolibtransform2/Flat Earth to LLA"
-	  SourceType		  "Flat Earth to LLA"
-	  SourceProductName	  "Aerospace Blockset"
-	  SourceProductBaseCode	  "AE"
-	  ContentPreviewEnabled	  off
-	  units			  "Metric (MKS)"
-	  ptype			  "Earth (WGS84)"
-	  F			  "1/298.257223563"
-	  R			  "6378137"
-	  LL0			  "[37.7889 -122.4778]"
-	  psi			  "0"
-	}
-	Block {
-	  BlockType		  Gain
-	  Name			  "Gain"
-	  SID			  "373"
-	  Position		  [1820, 500, 1850, 530]
-	  ZOrder		  7
-	  Gain			  "180/pi"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Gain
-	  Name			  "Gain1"
-	  SID			  "374"
-	  Position		  [1820, 690, 1850, 720]
-	  ZOrder		  8
-	  Gain			  "180/pi"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Gain
-	  Name			  "Gain2"
-	  SID			  "376"
-	  Position		  [1820, 730, 1850, 760]
-	  ZOrder		  10
-	  Gain			  "180/pi"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Gain
-	  Name			  "Gain3"
-	  SID			  "377"
-	  Position		  [1820, 775, 1850, 805]
-	  ZOrder		  11
-	  Gain			  "180/pi"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Gain
-	  Name			  "Gain4"
-	  SID			  "378"
-	  Position		  [1820, 820, 1850, 850]
-	  ZOrder		  12
-	  Gain			  "180/pi"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Scope
-	  Name			  "Scope for States"
-	  SID			  "371"
-	  Ports			  [6]
-	  Position		  [2050, 591, 2130, 854]
-	  ZOrder		  5
-	  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr."
-	  "Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sources"
-	  "','WiredSimulink',true),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal"
-	  "','6083.89484','MaxYLimReal','9931.18182','YLabelReal','','MinYLimMag','6083.89484','MaxYLimMag','9931.18182','Lege"
-	  "ndVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509"
-	  "803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.6235294117647"
-	  "06 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 "
-	  "0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','Altitude (m)','LineProp"
-	  "ertiesCache',{{struct('Color',[1 1 0.0666666666666667],'LineStyle','-','LineWidth',0.75,'Marker','none','Visible','"
-	  "on')}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'Sum'}},'ShowContent',true,'Placement',1),struct('"
-	  "MinYLimReal','-8.28672','MaxYLimReal','76.42294','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','65.95349','Le"
-	  "gendVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.6862745"
-	  "09803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.62352941176"
-	  "4706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.71764705882352"
-	  "9 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','Angle of Attack (degr"
-	  "ees)','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.75,'Marker','none','Visible','on"
-	  "')}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'Gain'}},'ShowContent',true,'Placement',2),struct('M"
-	  "inYLimReal','-0.04438','MaxYLimReal','0.01428','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','0.16673','Legen"
-	  "dVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.6862745098"
-	  "03922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.62352941176470"
-	  "6 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0"
-	  ".274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','Angle of SideSlip (degre"
-	  "es)','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'Gain1'}},'ShowContent',t"
-	  "rue,'Placement',3),struct('MinYLimReal','-1.00000','MaxYLimReal','1.00000','YLabelReal','','MinYLimMag','0.00000','"
-	  "MaxYLimMag','4.87056','LegendVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'"
-	  "AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.07450"
-	  "98039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.07450980"
-	  "39215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Titl"
-	  "e','Roll (degrees)','LinePropertiesCache',{{struct('Color',[1 1 0.0666666666666667],'LineStyle','-','LineWidth',0.7"
-	  "5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'Gain2'}},'ShowConten"
-	  "t',true,'Placement',4),struct('MinYLimReal','-16.51176','MaxYLimReal','98.65178','YLabelReal','','MinYLimMag','0.00"
-	  "000','MaxYLimMag','85.85443','LegendVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0"
-	  " 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;"
-	  "0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0"
-	  "745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863"
-	  "],'Title','Pitch (degrees)','LinePropertiesCache',{{struct('Color',[1 1 0.0666666666666667],'LineStyle','-','LineWi"
-	  "dth',0.75,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'Gain3'}},'Sh"
-	  "owContent',true,'Placement',5),struct('MinYLimReal','-0.31236','MaxYLimReal','0.91068','YLabelReal','','MinYLimMag'"
-	  ",'0.00000','MaxYLimMag','2.42081','LegendVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColo"
-	  "r',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.066666666666"
-	  "6667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.83137254901960"
-	  "8 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.6509803921"
-	  "56863],'Title','Yaw (degrees)','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{"
-	  "{'Gain4'}},'ShowContent',true,'Placement',6)},'DisplayPropertyDefaults',struct('YLabelReal','','AxesColor',[0 0 0],"
-	  "'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0."
-	  "717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1"
-	  " 0.0745098039215686 0.650980392156863]),'MaximizeAxes','Auto','DisplayLayoutDimensions',[3 2]),extmgr.Configuration"
-	  "('Tools','Plot Navigation',true,'AutoscaleMode','Auto','OnceAtStop',false),extmgr.Configuration('Tools','Measuremen"
-	  "ts',true,'Version','2018a')),'Version','2018a','Position',[769.8 41.8 766.4 741.6],'VisibleAtModelOpen','on','OpenA"
-	  "tMdlStart',true)"
-	  NumInputPorts		  "6"
-	  Floating		  off
-	}
-	Block {
-	  BlockType		  Selector
-	  Name			  "Selector"
-	  SID			  "313"
-	  Ports			  [1, 1]
-	  Position		  [1340, 906, 1380, 944]
-	  ZOrder		  -23
-	  ShowName		  off
-	  InputPortWidth	  "2"
-	  IndexOptions		  "Index vector (dialog)"
-	  Indices		  "[2 1]"
-	  OutputSizes		  "1"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "315"
-	  Ports			  [2, 1]
-	  Position		  [1470, 600, 1490, 620]
-	  ZOrder		  -25
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "|++"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  ToWorkspace
-	  Name			  "To Workspace"
-	  SID			  "415"
-	  Ports			  [1]
-	  Position		  [2060, 500, 2120, 530]
-	  ZOrder		  32
-	  VariableName		  "simout_alpha"
-	  MaxDataPoints		  "inf"
-	  SaveFormat		  "Structure With Time"
-	  Save2DSignal		  "3-D array (concatenate along third dimension)"
-	  FixptAsFi		  on
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  ToWorkspace
-	  Name			  "To Workspace1"
-	  SID			  "419"
-	  Ports			  [1]
-	  Position		  [1545, 1095, 1605, 1125]
-	  ZOrder		  36
-	  VariableName		  "simout_q"
-	  MaxDataPoints		  "inf"
-	  SaveFormat		  "Structure With Time"
-	  Save2DSignal		  "3-D array (concatenate along third dimension)"
-	  FixptAsFi		  on
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  ToWorkspace
-	  Name			  "To Workspace2"
-	  SID			  "421"
-	  Ports			  [1]
-	  Position		  [1545, 1055, 1605, 1085]
-	  ZOrder		  37
-	  VariableName		  "simout_p"
-	  MaxDataPoints		  "inf"
-	  SaveFormat		  "Structure With Time"
-	  Save2DSignal		  "3-D array (concatenate along third dimension)"
-	  FixptAsFi		  on
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  ToWorkspace
-	  Name			  "To Workspace3"
-	  SID			  "422"
-	  Ports			  [1]
-	  Position		  [1545, 1135, 1605, 1165]
-	  ZOrder		  38
-	  VariableName		  "simout_r"
-	  MaxDataPoints		  "inf"
-	  SaveFormat		  "Structure With Time"
-	  Save2DSignal		  "3-D array (concatenate along third dimension)"
-	  FixptAsFi		  on
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "cascvt"
-	  SID			  "316"
-	  Ports			  [1, 1]
-	  Position		  [1685, 630, 1730, 660]
-	  ZOrder		  -26
-	  LibraryVersion	  "1.65"
-	  SourceBlock		  "aerolibconvert/Velocity Conversion"
-	  SourceType		  "Velocity Conversion"
-	  SourceProductName	  "Aerospace Blockset"
-	  SourceProductBaseCode	  "AE"
-	  ContentPreviewEnabled	  off
-	  IU			  "m/s"
-	  OU			  "kts"
-	}
-	Block {
-	  BlockType		  DataTypeConversion
-	  Name			  "cast1"
-	  SID			  "317"
-	  Position		  [985, 935, 1025, 955]
-	  ZOrder		  -27
-	  ShowName		  off
-	  OutDataTypeStr	  "single"
-	  RndMeth		  "Floor"
-	}
-	Block {
-	  BlockType		  DataTypeConversion
-	  Name			  "cast2"
-	  SID			  "318"
-	  Position		  [985, 875, 1025, 895]
-	  ZOrder		  -28
-	  ShowName		  off
-	  OutDataTypeStr	  "single"
-	  RndMeth		  "Floor"
-	}
-	Block {
-	  BlockType		  DataTypeConversion
-	  Name			  "cast3"
-	  SID			  "319"
-	  Position		  [1070, 815, 1110, 835]
-	  ZOrder		  -29
-	  ShowName		  off
-	  OutDataTypeStr	  "single"
-	  RndMeth		  "Floor"
-	}
-	Block {
-	  BlockType		  DataTypeConversion
-	  Name			  "cast4"
-	  SID			  "320"
-	  Position		  [1030, 755, 1070, 775]
-	  ZOrder		  -30
-	  ShowName		  off
-	  OutDataTypeStr	  "single"
-	  RndMeth		  "Floor"
-	}
-	Block {
-	  BlockType		  DataTypeConversion
-	  Name			  "cast5"
-	  SID			  "321"
-	  Position		  [1030, 695, 1070, 715]
-	  ZOrder		  -31
-	  ShowName		  off
-	  OutDataTypeStr	  "single"
-	  RndMeth		  "Floor"
-	}
-	Block {
-	  BlockType		  DataTypeConversion
-	  Name			  "cast6"
-	  SID			  "322"
-	  Position		  [1035, 635, 1075, 655]
-	  ZOrder		  -32
-	  ShowName		  off
-	  OutDataTypeStr	  "single"
-	  RndMeth		  "Floor"
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  "end1"
-	  SID			  "323"
-	  Position		  [995, 996, 1015, 1014]
-	  ZOrder		  -33
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  "end2"
-	  SID			  "423"
-	  Position		  [1825, 636, 1845, 654]
-	  ZOrder		  39
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  "end3"
-	  SID			  "424"
-	  Position		  [1565, 946, 1585, 964]
-	  ZOrder		  40
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  "end4"
-	  SID			  "425"
-	  Position		  [1565, 971, 1585, 989]
-	  ZOrder		  41
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  "end5"
-	  SID			  "426"
-	  Position		  [1565, 996, 1585, 1014]
-	  ZOrder		  42
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  "end6"
-	  SID			  "427"
-	  Position		  [1585, 531, 1605, 549]
-	  ZOrder		  43
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  "end7"
-	  SID			  "428"
-	  Position		  [1585, 556, 1605, 574]
-	  ZOrder		  44
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "heading"
-	  SID			  "324"
-	  Position		  [1465, 665, 1495, 695]
-	  ZOrder		  -34
-	  BlockRotation		  270
-	  Value			  "100"
-	}
-	Block {
-	  BlockType		  SubSystem
-	  Name			  "phidot\nthetadot\npsidot"
-	  SID			  "325"
-	  Ports			  [2, 2]
-	  Position		  [1130, 809, 1250, 871]
-	  ZOrder		  -35
-	  RequestExecContextInheritance	off
-	  System {
-	    Name		    "phidot\nthetadot\npsidot"
-	    Location		    [261, 191, 1329, 1045]
-	    Open		    off
-	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "phi\ntheta\npsi"
-	      SID		      "326"
-	      Position		      [65, 150, 85, 170]
-	      ZOrder		      -1
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "pqr"
-	      SID		      "327"
-	      Position		      [65, 80, 85, 100]
-	      ZOrder		      -2
-	      Port		      "2"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Concatenate
-	      Name		      "Concatenate1"
-	      SID		      "328"
-	      Ports		      [3, 1]
-	      Position		      [235, 64, 240, 206]
-	      ZOrder		      -3
-	      ShowName		      off
-	      NumInputs		      "3"
-	    }
-	    Block {
-	      BlockType		      Concatenate
-	      Name		      "Concatenate2"
-	      SID		      "329"
-	      Ports		      [3, 1]
-	      Position		      [670, 65, 675, 205]
-	      ZOrder		      -4
-	      ShowName		      off
-	      NumInputs		      "3"
-	    }
-	    Block {
-	      BlockType		      Reference
-	      Name		      "SinCos"
-	      SID		      "330"
-	      Ports		      [1, 2]
-	      Position		      [150, 114, 185, 201]
-	      ZOrder		      -5
-	      LibraryVersion	      "1.56"
-	      SourceBlock	      "aerolibobsolete/SinCos"
-	      SourceType	      "SinCos"
-	      SourceProductName	      "Aerospace Blockset"
-	      SourceProductBaseCode   "AE"
-	      ContentPreviewEnabled   off
-	    }
-	    Block {
-	      BlockType		      Fcn
-	      Name		      "phidot"
-	      SID		      "331"
-	      Position		      [320, 79, 625, 101]
-	      ZOrder		      -6
-	      Expr		      "u[1]+(u[2]*u[4]+u[3]*u[7])*(u[5]/u[8])"
-	    }
-	    Block {
-	      BlockType		      Fcn
-	      Name		      "psidot"
-	      SID		      "332"
-	      Position		      [320, 169, 625, 191]
-	      ZOrder		      -7
-	      Expr		      "(u[2]*u[4]+u[3]*u[7])/u[8]"
-	    }
-	    Block {
-	      BlockType		      Fcn
-	      Name		      "thetadot"
-	      SID		      "333"
-	      Position		      [320, 124, 625, 146]
-	      ZOrder		      -8
-	      Expr		      "u[2]*u[7]-u[3]*u[4]"
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "ptp_earth"
-	      SID		      "334"
-	      Position		      [740, 301, 775, 319]
-	      ZOrder		      -9
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "ptp_dot"
-	      SID		      "335"
-	      Position		      [740, 125, 775, 145]
-	      ZOrder		      -10
-	      Port		      "2"
-	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      ZOrder		      1
-	      SrcBlock		      "Concatenate1"
-	      SrcPort		      1
-	      Points		      [0, 0; 30, 0]
-	      Branch {
-		ZOrder			2
-		Points			[0, 45]
-		DstBlock		"psidot"
-		DstPort			1
-	      }
-	      Branch {
-		ZOrder			3
-		Points			[0, -45]
-		DstBlock		"phidot"
-		DstPort			1
-	      }
-	      Branch {
-		ZOrder			4
-		DstBlock		"thetadot"
-		DstPort			1
-	      }
-	    }
-	    Line {
-	      ZOrder		      5
-	      SrcBlock		      "pqr"
-	      SrcPort		      1
-	      DstBlock		      "Concatenate1"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      6
-	      SrcBlock		      "phi\ntheta\npsi"
-	      SrcPort		      1
-	      Points		      [25, 0]
-	      Branch {
-		ZOrder			7
-		DstBlock		"SinCos"
-		DstPort			1
-	      }
-	      Branch {
-		ZOrder			8
-		Points			[0, 150]
-		DstBlock		"ptp_earth"
-		DstPort			1
-	      }
-	    }
-	    Line {
-	      ZOrder		      9
-	      SrcBlock		      "psidot"
-	      SrcPort		      1
-	      DstBlock		      "Concatenate2"
-	      DstPort		      3
-	    }
-	    Line {
-	      ZOrder		      10
-	      SrcBlock		      "thetadot"
-	      SrcPort		      1
-	      DstBlock		      "Concatenate2"
-	      DstPort		      2
-	    }
-	    Line {
-	      ZOrder		      11
-	      SrcBlock		      "phidot"
-	      SrcPort		      1
-	      DstBlock		      "Concatenate2"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      12
-	      SrcBlock		      "Concatenate2"
-	      SrcPort		      1
-	      DstBlock		      "ptp_dot"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      13
-	      SrcBlock		      "SinCos"
-	      SrcPort		      1
-	      DstBlock		      "Concatenate1"
-	      DstPort		      2
-	    }
-	    Line {
-	      ZOrder		      14
-	      SrcBlock		      "SinCos"
-	      SrcPort		      2
-	      DstBlock		      "Concatenate1"
-	      DstPort		      3
-	    }
-	  }
-	}
-	Block {
-	  BlockType		  SubSystem
-	  Name			  "quaternions to Euler"
-	  SID			  "336"
-	  Ports			  [1, 1]
-	  Position		  [935, 807, 1020, 843]
-	  ZOrder		  -36
-	  RequestExecContextInheritance	off
-	  System {
-	    Name		    "quaternions to Euler"
-	    Location		    [627, 319, 1023, 623]
-	    Open		    off
-	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "q"
-	      SID		      "337"
-	      Position		      [25, 43, 55, 57]
-	      ZOrder		      -1
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Reference
-	      Name		      "Quaternions to Rotation Angles"
-	      SID		      "338"
-	      Ports		      [1, 1]
-	      Position		      [90, 29, 190, 71]
-	      ZOrder		      -2
-	      AttributesFormatString  "Rotation Order: %<rotationOrder>"
-	      LibraryVersion	      "1.504"
-	      SourceBlock	      "sharedtransform/Quaternions to Rotation Angles"
-	      SourceType	      "Quat2Ang"
-	      SourceProductName	      "Aerospace Blockset"
-	      SourceProductBaseCode   "AE"
-	      ContentPreviewEnabled   off
-	      rotationOrder	      "ZYX"
-	      aMode		      "aMode"
-	    }
-	    Block {
-	      BlockType		      Selector
-	      Name		      "Selector"
-	      SID		      "339"
-	      Ports		      [1, 1]
-	      Position		      [235, 31, 260, 69]
-	      ZOrder		      -3
-	      InputPortWidth	      "3"
-	      IndexOptions	      "Index vector (dialog)"
-	      Indices		      "[3 2 1]"
-	      OutputSizes	      "1"
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "E"
-	      SID		      "340"
-	      Position		      [285, 43, 315, 57]
-	      ZOrder		      -4
-	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      ZOrder		      1
-	      SrcBlock		      "Quaternions to Rotation Angles"
-	      SrcPort		      1
-	      DstBlock		      "Selector"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      2
-	      SrcBlock		      "q"
-	      SrcPort		      1
-	      DstBlock		      "Quaternions to Rotation Angles"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      3
-	      SrcBlock		      "Selector"
-	      SrcPort		      1
-	      DstBlock		      "E"
-	      DstPort		      1
-	    }
-	  }
-	}
-	Line {
-	  ZOrder		  15
-	  SrcBlock		  "states"
-	  SrcPort		  1
-	  DstBlock		  "Demux"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  16
-	  SrcBlock		  "Demux"
-	  SrcPort		  1
-	  DstBlock		  "cast6"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  17
-	  SrcBlock		  "Demux"
-	  SrcPort		  2
-	  DstBlock		  "cast5"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  18
-	  SrcBlock		  "Demux1"
-	  SrcPort		  1
-	  DstBlock		  "Gain2"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  19
-	  SrcBlock		  "Demux1"
-	  SrcPort		  3
-	  DstBlock		  "Gain4"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  20
-	  SrcBlock		  "Demux"
-	  SrcPort		  3
-	  DstBlock		  "cast4"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  23
-	  SrcBlock		  "Demux"
-	  SrcPort		  5
-	  Points		  [35, 0]
-	  Branch {
-	    ZOrder		    217
-	    DstBlock		    "cast2"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    216
-	    Points		    [0, 225]
-	    DstBlock		    "Demux4"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  ZOrder		  26
-	  SrcBlock		  "phidot\nthetadot\npsidot"
-	  SrcPort		  1
-	  Points		  [52, 0; 0, -35]
-	  DstBlock		  "Demux1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  27
-	  SrcBlock		  "phidot\nthetadot\npsidot"
-	  SrcPort		  2
-	  Points		  [53, 0; 0, 125]
-	  DstBlock		  "Demux2"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  28
-	  SrcBlock		  "Demux"
-	  SrcPort		  6
-	  DstBlock		  "cast1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  29
-	  SrcBlock		  "Constant"
-	  SrcPort		  1
-	  DstBlock		  "Flat Earth to LLA"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  30
-	  SrcBlock		  "Flat Earth to LLA"
-	  SrcPort		  1
-	  DstBlock		  "Selector"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  31
-	  SrcBlock		  "Selector"
-	  SrcPort		  1
-	  Points		  [35, 0; 0, -370]
-	  DstBlock		  "Demux3"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  32
-	  SrcBlock		  "Demux3"
-	  SrcPort		  1
-	  DstBlock		  "Angle Conversion1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  33
-	  SrcBlock		  "Demux3"
-	  SrcPort		  2
-	  DstBlock		  "Angle Conversion"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  34
-	  SrcBlock		  "cast1"
-	  SrcPort		  1
-	  Points		  [55, 0; 0, -20]
-	  DstBlock		  "Flat Earth to LLA"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  35
-	  SrcBlock		  "cast2"
-	  SrcPort		  1
-	  Points		  [40, 0; 0, -30]
-	  DstBlock		  "phidot\nthetadot\npsidot"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  36
-	  SrcBlock		  "cast3"
-	  SrcPort		  1
-	  DstBlock		  "phidot\nthetadot\npsidot"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  37
-	  SrcBlock		  "cast4"
-	  SrcPort		  1
-	  Points		  [98, 0; 0, -250]
-	  DstBlock		  "Gain"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  38
-	  SrcBlock		  "cast5"
-	  SrcPort		  1
-	  DstBlock		  "Gain1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  39
-	  SrcBlock		  "cast6"
-	  SrcPort		  1
-	  DstBlock		  "cascvt"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  40
-	  SrcBlock		  "Flat Earth to LLA"
-	  SrcPort		  2
-	  Points		  [180, 0; 0, -340]
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  41
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  Points		  [0, 0]
-	  DstBlock		  "Scope for States"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  44
-	  SrcBlock		  "heading"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  45
-	  SrcBlock		  "quaternions to Euler"
-	  SrcPort		  1
-	  DstBlock		  "cast3"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  46
-	  SrcBlock		  "Demux"
-	  SrcPort		  4
-	  DstBlock		  "quaternions to Euler"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  47
-	  SrcBlock		  "Demux"
-	  SrcPort		  7
-	  DstBlock		  "end1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  142
-	  SrcBlock		  "Gain3"
-	  SrcPort		  1
-	  DstBlock		  "Scope for States"
-	  DstPort		  5
-	}
-	Line {
-	  ZOrder		  141
-	  SrcBlock		  "Gain2"
-	  SrcPort		  1
-	  DstBlock		  "Scope for States"
-	  DstPort		  4
-	}
-	Line {
-	  ZOrder		  143
-	  SrcBlock		  "Gain4"
-	  SrcPort		  1
-	  DstBlock		  "Scope for States"
-	  DstPort		  6
-	}
-	Line {
-	  ZOrder		  25
-	  SrcBlock		  "Demux1"
-	  SrcPort		  2
-	  DstBlock		  "Gain3"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  146
-	  SrcBlock		  "Gain"
-	  SrcPort		  1
-	  Points		  [75, 0]
-	  Branch {
-	    ZOrder		    218
-	    Points		    [0, 140]
-	    DstBlock		    "Scope for States"
-	    DstPort		    2
-	  }
-	  Branch {
-	    ZOrder		    162
-	    DstBlock		    "To Workspace"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  ZOrder		  147
-	  SrcBlock		  "Gain1"
-	  SrcPort		  1
-	  Points		  [95, 0; 0, -5]
-	  DstBlock		  "Scope for States"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  208
-	  SrcBlock		  "Demux4"
-	  SrcPort		  1
-	  DstBlock		  "To Workspace2"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  209
-	  SrcBlock		  "Demux4"
-	  SrcPort		  3
-	  DstBlock		  "To Workspace3"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  167
-	  SrcBlock		  "Demux4"
-	  SrcPort		  2
-	  DstBlock		  "To Workspace1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  219
-	  SrcBlock		  "cascvt"
-	  SrcPort		  1
-	  DstBlock		  "end2"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  220
-	  SrcBlock		  "Demux2"
-	  SrcPort		  1
-	  DstBlock		  "end3"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  221
-	  SrcBlock		  "Demux2"
-	  SrcPort		  2
-	  DstBlock		  "end4"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  222
-	  SrcBlock		  "Demux2"
-	  SrcPort		  3
-	  DstBlock		  "end5"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  223
-	  SrcBlock		  "Angle Conversion1"
-	  SrcPort		  1
-	  DstBlock		  "end6"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  224
-	  SrcBlock		  "Angle Conversion"
-	  SrcPort		  1
-	  DstBlock		  "end7"
-	  DstPort		  1
-	}
-      }
-    }
     Block {
       BlockType		      SubSystem
       Name		      "F-16"
@@ -8906,7 +7788,6 @@ Model {
       Position		      [1010, 482, 1050, 532]
       ZOrder		      -3
       BackgroundColor	      "lightBlue"
-      Commented		      "on"
       LibraryVersion	      "1.299"
       SourceBlock	      "aerolibfltsims/Generate\nRun Script"
       SourceType	      "Generate FlightGear Run Script"
@@ -9014,6 +7895,1130 @@ Model {
       Value		      "0*pi/180"
     }
     Block {
+      BlockType		      SubSystem
+      Name		      "flightgear"
+      SID		      "290"
+      Ports		      [1]
+      Position		      [1010, 368, 1095, 422]
+      ZOrder		      -6
+      RequestExecContextInheritance off
+      System {
+	Name			"flightgear"
+	Location		[1913, -7, 3847, 1047]
+	Open			on
+	PortBlocksUseCompactNotation off
+	SetDomainSpec		off
+	DomainSpecType		"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "states"
+	  SID			  "291"
+	  Position		  [840, 818, 870, 832]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Angle Conversion"
+	  SID			  "292"
+	  Ports			  [1, 1]
+	  Position		  [1500, 559, 1545, 571]
+	  ZOrder		  -2
+	  ShowName		  off
+	  LibraryVersion	  "1.139"
+	  SourceBlock		  "aerolibconvert2/Angle Conversion"
+	  SourceType		  "Angle Conversion"
+	  SourceProductName	  "Aerospace Blockset"
+	  SourceProductBaseCode	  "AE"
+	  ContentPreviewEnabled	  off
+	  IU			  "deg"
+	  OU			  "rad"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Angle Conversion1"
+	  SID			  "293"
+	  Ports			  [1, 1]
+	  Position		  [1500, 534, 1545, 546]
+	  ZOrder		  -3
+	  ShowName		  off
+	  LibraryVersion	  "1.139"
+	  SourceBlock		  "aerolibconvert2/Angle Conversion"
+	  SourceType		  "Angle Conversion"
+	  SourceProductName	  "Aerospace Blockset"
+	  SourceProductBaseCode	  "AE"
+	  ContentPreviewEnabled	  off
+	  IU			  "deg"
+	  OU			  "rad"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "294"
+	  Position		  [1130, 942, 1160, 958]
+	  ZOrder		  -4
+	  ShowName		  off
+	  Value			  "0"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux"
+	  SID			  "295"
+	  Ports			  [1, 7]
+	  Position		  [910, 608, 915, 1042]
+	  ZOrder		  -5
+	  BackgroundColor	  "black"
+	  ShowName		  off
+	  Outputs		  "[1 1 1 4 3 3 3]"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux1"
+	  SID			  "296"
+	  Ports			  [1, 3]
+	  Position		  [1480, 721, 1485, 859]
+	  ZOrder		  -6
+	  BackgroundColor	  "black"
+	  ShowName		  off
+	  Outputs		  "3"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux2"
+	  SID			  "297"
+	  Ports			  [1, 3]
+	  Position		  [1480, 938, 1485, 1022]
+	  ZOrder		  -7
+	  BackgroundColor	  "black"
+	  ShowName		  off
+	  Outputs		  "3"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux3"
+	  SID			  "298"
+	  Ports			  [1, 2]
+	  Position		  [1475, 528, 1480, 577]
+	  ZOrder		  -8
+	  BackgroundColor	  "black"
+	  ShowName		  off
+	  Outputs		  "2"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux4"
+	  SID			  "416"
+	  Ports			  [1, 3]
+	  Position		  [1480, 1050, 1485, 1170]
+	  ZOrder		  33
+	  ShowName		  off
+	  Outputs		  "3"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Flat Earth to LLA"
+	  SID			  "299"
+	  Ports			  [2, 2]
+	  Position		  [1195, 913, 1260, 962]
+	  ZOrder		  -9
+	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
+	  LibraryVersion	  "1.481"
+	  SourceBlock		  "aerolibtransform2/Flat Earth to LLA"
+	  SourceType		  "Flat Earth to LLA"
+	  SourceProductName	  "Aerospace Blockset"
+	  SourceProductBaseCode	  "AE"
+	  ContentPreviewEnabled	  off
+	  units			  "Metric (MKS)"
+	  ptype			  "Earth (WGS84)"
+	  F			  "1/298.257223563"
+	  R			  "6378137"
+	  LL0			  "[37.7889 -122.4778]"
+	  psi			  "0"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain"
+	  SID			  "373"
+	  Position		  [1820, 500, 1850, 530]
+	  ZOrder		  7
+	  Gain			  "180/pi"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain1"
+	  SID			  "374"
+	  Position		  [1820, 690, 1850, 720]
+	  ZOrder		  8
+	  Gain			  "180/pi"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain2"
+	  SID			  "376"
+	  Position		  [1820, 730, 1850, 760]
+	  ZOrder		  10
+	  Gain			  "180/pi"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain3"
+	  SID			  "377"
+	  Position		  [1820, 775, 1850, 805]
+	  ZOrder		  11
+	  Gain			  "180/pi"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain4"
+	  SID			  "378"
+	  Position		  [1820, 820, 1850, 850]
+	  ZOrder		  12
+	  Gain			  "180/pi"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "Scope for States"
+	  SID			  "371"
+	  Ports			  [6]
+	  Position		  [2050, 591, 2130, 854]
+	  ZOrder		  5
+	  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr."
+	  "Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sources"
+	  "','WiredSimulink',true),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal"
+	  "','5923.21155','MaxYLimReal','9949.03552','YLabelReal','','MinYLimMag','5923.21155','MaxYLimMag','9949.03552','Lege"
+	  "ndVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509"
+	  "803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.6235294117647"
+	  "06 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 "
+	  "0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','Altitude (m)','LineProp"
+	  "ertiesCache',{{struct('Color',[1 1 0.0666666666666667],'LineStyle','-','LineWidth',0.75,'Marker','none','Visible','"
+	  "on')}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'Sum'}},'ShowContent',true,'Placement',1),struct('"
+	  "MinYLimReal','-8.28672','MaxYLimReal','76.42294','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','65.95349','Le"
+	  "gendVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.6862745"
+	  "09803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.62352941176"
+	  "4706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.71764705882352"
+	  "9 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','Angle of Attack (degr"
+	  "ees)','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.75,'Marker','none','Visible','on"
+	  "')}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'Gain'}},'ShowContent',true,'Placement',2),struct('M"
+	  "inYLimReal','-0.04438','MaxYLimReal','0.01428','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','0.16673','Legen"
+	  "dVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.6862745098"
+	  "03922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.62352941176470"
+	  "6 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0"
+	  ".274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','Angle of SideSlip (degre"
+	  "es)','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'Gain1'}},'ShowContent',t"
+	  "rue,'Placement',3),struct('MinYLimReal','-1.00000','MaxYLimReal','1.00000','YLabelReal','','MinYLimMag','0.00000','"
+	  "MaxYLimMag','4.87056','LegendVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'"
+	  "AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.07450"
+	  "98039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.07450980"
+	  "39215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Titl"
+	  "e','Roll (degrees)','LinePropertiesCache',{{struct('Color',[1 1 0.0666666666666667],'LineStyle','-','LineWidth',0.7"
+	  "5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'Gain2'}},'ShowConten"
+	  "t',true,'Placement',4),struct('MinYLimReal','-16.51176','MaxYLimReal','98.65178','YLabelReal','','MinYLimMag','0.00"
+	  "000','MaxYLimMag','85.85443','LegendVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0"
+	  " 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;"
+	  "0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0"
+	  "745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863"
+	  "],'Title','Pitch (degrees)','LinePropertiesCache',{{struct('Color',[1 1 0.0666666666666667],'LineStyle','-','LineWi"
+	  "dth',0.75,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'Gain3'}},'Sh"
+	  "owContent',true,'Placement',5),struct('MinYLimReal','-0.31236','MaxYLimReal','0.91068','YLabelReal','','MinYLimMag'"
+	  ",'0.00000','MaxYLimMag','2.42081','LegendVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColo"
+	  "r',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.066666666666"
+	  "6667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.83137254901960"
+	  "8 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.6509803921"
+	  "56863],'Title','Yaw (degrees)','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{"
+	  "{'Gain4'}},'ShowContent',true,'Placement',6)},'DisplayPropertyDefaults',struct('YLabelReal','','AxesColor',[0 0 0],"
+	  "'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0."
+	  "717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1"
+	  " 0.0745098039215686 0.650980392156863]),'MaximizeAxes','Auto','DisplayLayoutDimensions',[3 2]),extmgr.Configuration"
+	  "('Tools','Plot Navigation',true,'AutoscaleMode','Auto','OnceAtStop',false),extmgr.Configuration('Tools','Measuremen"
+	  "ts',true,'Version','2018a')),'Version','2018a','Position',[769.8 41.8 766.4 741.6],'VisibleAtModelOpen','on','OpenA"
+	  "tMdlStart',true)"
+	  NumInputPorts		  "6"
+	  Floating		  off
+	}
+	Block {
+	  BlockType		  Selector
+	  Name			  "Selector"
+	  SID			  "313"
+	  Ports			  [1, 1]
+	  Position		  [1340, 906, 1380, 944]
+	  ZOrder		  -23
+	  ShowName		  off
+	  InputPortWidth	  "2"
+	  IndexOptions		  "Index vector (dialog)"
+	  Indices		  "[2 1]"
+	  OutputSizes		  "1"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "315"
+	  Ports			  [2, 1]
+	  Position		  [1470, 600, 1490, 620]
+	  ZOrder		  -25
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace"
+	  SID			  "415"
+	  Ports			  [1]
+	  Position		  [2060, 500, 2120, 530]
+	  ZOrder		  32
+	  VariableName		  "simout_alpha"
+	  MaxDataPoints		  "inf"
+	  SaveFormat		  "Structure With Time"
+	  Save2DSignal		  "3-D array (concatenate along third dimension)"
+	  FixptAsFi		  on
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace1"
+	  SID			  "419"
+	  Ports			  [1]
+	  Position		  [1545, 1095, 1605, 1125]
+	  ZOrder		  36
+	  VariableName		  "simout_q"
+	  MaxDataPoints		  "inf"
+	  SaveFormat		  "Structure With Time"
+	  Save2DSignal		  "3-D array (concatenate along third dimension)"
+	  FixptAsFi		  on
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace2"
+	  SID			  "421"
+	  Ports			  [1]
+	  Position		  [1545, 1055, 1605, 1085]
+	  ZOrder		  37
+	  VariableName		  "simout_p"
+	  MaxDataPoints		  "inf"
+	  SaveFormat		  "Structure With Time"
+	  Save2DSignal		  "3-D array (concatenate along third dimension)"
+	  FixptAsFi		  on
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace3"
+	  SID			  "422"
+	  Ports			  [1]
+	  Position		  [1545, 1135, 1605, 1165]
+	  ZOrder		  38
+	  VariableName		  "simout_r"
+	  MaxDataPoints		  "inf"
+	  SaveFormat		  "Structure With Time"
+	  Save2DSignal		  "3-D array (concatenate along third dimension)"
+	  FixptAsFi		  on
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "cascvt"
+	  SID			  "316"
+	  Ports			  [1, 1]
+	  Position		  [1685, 630, 1730, 660]
+	  ZOrder		  -26
+	  LibraryVersion	  "1.65"
+	  SourceBlock		  "aerolibconvert/Velocity Conversion"
+	  SourceType		  "Velocity Conversion"
+	  SourceProductName	  "Aerospace Blockset"
+	  SourceProductBaseCode	  "AE"
+	  ContentPreviewEnabled	  off
+	  IU			  "m/s"
+	  OU			  "kts"
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "cast1"
+	  SID			  "317"
+	  Position		  [985, 935, 1025, 955]
+	  ZOrder		  -27
+	  ShowName		  off
+	  OutDataTypeStr	  "single"
+	  RndMeth		  "Floor"
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "cast2"
+	  SID			  "318"
+	  Position		  [985, 875, 1025, 895]
+	  ZOrder		  -28
+	  ShowName		  off
+	  OutDataTypeStr	  "single"
+	  RndMeth		  "Floor"
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "cast3"
+	  SID			  "319"
+	  Position		  [1070, 815, 1110, 835]
+	  ZOrder		  -29
+	  ShowName		  off
+	  OutDataTypeStr	  "single"
+	  RndMeth		  "Floor"
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "cast4"
+	  SID			  "320"
+	  Position		  [1030, 755, 1070, 775]
+	  ZOrder		  -30
+	  ShowName		  off
+	  OutDataTypeStr	  "single"
+	  RndMeth		  "Floor"
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "cast5"
+	  SID			  "321"
+	  Position		  [1030, 695, 1070, 715]
+	  ZOrder		  -31
+	  ShowName		  off
+	  OutDataTypeStr	  "single"
+	  RndMeth		  "Floor"
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "cast6"
+	  SID			  "322"
+	  Position		  [1035, 635, 1075, 655]
+	  ZOrder		  -32
+	  ShowName		  off
+	  OutDataTypeStr	  "single"
+	  RndMeth		  "Floor"
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "end1"
+	  SID			  "323"
+	  Position		  [995, 996, 1015, 1014]
+	  ZOrder		  -33
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "end2"
+	  SID			  "423"
+	  Position		  [1825, 636, 1845, 654]
+	  ZOrder		  39
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "end3"
+	  SID			  "424"
+	  Position		  [1565, 946, 1585, 964]
+	  ZOrder		  40
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "end4"
+	  SID			  "425"
+	  Position		  [1565, 971, 1585, 989]
+	  ZOrder		  41
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "end5"
+	  SID			  "426"
+	  Position		  [1565, 996, 1585, 1014]
+	  ZOrder		  42
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "end6"
+	  SID			  "427"
+	  Position		  [1585, 531, 1605, 549]
+	  ZOrder		  43
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "end7"
+	  SID			  "428"
+	  Position		  [1585, 556, 1605, 574]
+	  ZOrder		  44
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "heading"
+	  SID			  "324"
+	  Position		  [1465, 665, 1495, 695]
+	  ZOrder		  -34
+	  BlockRotation		  270
+	  Value			  "100"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "phidot\nthetadot\npsidot"
+	  SID			  "325"
+	  Ports			  [2, 2]
+	  Position		  [1130, 809, 1250, 871]
+	  ZOrder		  -35
+	  RequestExecContextInheritance	off
+	  System {
+	    Name		    "phidot\nthetadot\npsidot"
+	    Location		    [261, 191, 1329, 1045]
+	    Open		    off
+	    PortBlocksUseCompactNotation off
+	    SetDomainSpec	    off
+	    DomainSpecType	    "Deduce"
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "phi\ntheta\npsi"
+	      SID		      "326"
+	      Position		      [65, 150, 85, 170]
+	      ZOrder		      -1
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "pqr"
+	      SID		      "327"
+	      Position		      [65, 80, 85, 100]
+	      ZOrder		      -2
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Concatenate
+	      Name		      "Concatenate1"
+	      SID		      "328"
+	      Ports		      [3, 1]
+	      Position		      [235, 64, 240, 206]
+	      ZOrder		      -3
+	      ShowName		      off
+	      NumInputs		      "3"
+	    }
+	    Block {
+	      BlockType		      Concatenate
+	      Name		      "Concatenate2"
+	      SID		      "329"
+	      Ports		      [3, 1]
+	      Position		      [670, 65, 675, 205]
+	      ZOrder		      -4
+	      ShowName		      off
+	      NumInputs		      "3"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "SinCos"
+	      SID		      "330"
+	      Ports		      [1, 2]
+	      Position		      [150, 114, 185, 201]
+	      ZOrder		      -5
+	      LibraryVersion	      "1.56"
+	      SourceBlock	      "aerolibobsolete/SinCos"
+	      SourceType	      "SinCos"
+	      SourceProductName	      "Aerospace Blockset"
+	      SourceProductBaseCode   "AE"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "phidot"
+	      SID		      "331"
+	      Position		      [320, 79, 625, 101]
+	      ZOrder		      -6
+	      Expr		      "u[1]+(u[2]*u[4]+u[3]*u[7])*(u[5]/u[8])"
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "psidot"
+	      SID		      "332"
+	      Position		      [320, 169, 625, 191]
+	      ZOrder		      -7
+	      Expr		      "(u[2]*u[4]+u[3]*u[7])/u[8]"
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "thetadot"
+	      SID		      "333"
+	      Position		      [320, 124, 625, 146]
+	      ZOrder		      -8
+	      Expr		      "u[2]*u[7]-u[3]*u[4]"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "ptp_earth"
+	      SID		      "334"
+	      Position		      [740, 301, 775, 319]
+	      ZOrder		      -9
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "ptp_dot"
+	      SID		      "335"
+	      Position		      [740, 125, 775, 145]
+	      ZOrder		      -10
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      ZOrder		      1
+	      SrcBlock		      "Concatenate1"
+	      SrcPort		      1
+	      Points		      [0, 0; 30, 0]
+	      Branch {
+		ZOrder			2
+		Points			[0, 45]
+		DstBlock		"psidot"
+		DstPort			1
+	      }
+	      Branch {
+		ZOrder			3
+		Points			[0, -45]
+		DstBlock		"phidot"
+		DstPort			1
+	      }
+	      Branch {
+		ZOrder			4
+		DstBlock		"thetadot"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      ZOrder		      5
+	      SrcBlock		      "pqr"
+	      SrcPort		      1
+	      DstBlock		      "Concatenate1"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      6
+	      SrcBlock		      "phi\ntheta\npsi"
+	      SrcPort		      1
+	      Points		      [25, 0]
+	      Branch {
+		ZOrder			7
+		DstBlock		"SinCos"
+		DstPort			1
+	      }
+	      Branch {
+		ZOrder			8
+		Points			[0, 150]
+		DstBlock		"ptp_earth"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      ZOrder		      9
+	      SrcBlock		      "psidot"
+	      SrcPort		      1
+	      DstBlock		      "Concatenate2"
+	      DstPort		      3
+	    }
+	    Line {
+	      ZOrder		      10
+	      SrcBlock		      "thetadot"
+	      SrcPort		      1
+	      DstBlock		      "Concatenate2"
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      11
+	      SrcBlock		      "phidot"
+	      SrcPort		      1
+	      DstBlock		      "Concatenate2"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      12
+	      SrcBlock		      "Concatenate2"
+	      SrcPort		      1
+	      DstBlock		      "ptp_dot"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      13
+	      SrcBlock		      "SinCos"
+	      SrcPort		      1
+	      DstBlock		      "Concatenate1"
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      14
+	      SrcBlock		      "SinCos"
+	      SrcPort		      2
+	      DstBlock		      "Concatenate1"
+	      DstPort		      3
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "quaternions to Euler"
+	  SID			  "336"
+	  Ports			  [1, 1]
+	  Position		  [935, 807, 1020, 843]
+	  ZOrder		  -36
+	  RequestExecContextInheritance	off
+	  System {
+	    Name		    "quaternions to Euler"
+	    Location		    [627, 319, 1023, 623]
+	    Open		    off
+	    PortBlocksUseCompactNotation off
+	    SetDomainSpec	    off
+	    DomainSpecType	    "Deduce"
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "q"
+	      SID		      "337"
+	      Position		      [25, 43, 55, 57]
+	      ZOrder		      -1
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Quaternions to Rotation Angles"
+	      SID		      "338"
+	      Ports		      [1, 1]
+	      Position		      [90, 29, 190, 71]
+	      ZOrder		      -2
+	      AttributesFormatString  "Rotation Order: %<rotationOrder>"
+	      LibraryVersion	      "1.504"
+	      SourceBlock	      "sharedtransform/Quaternions to Rotation Angles"
+	      SourceType	      "Quat2Ang"
+	      SourceProductName	      "Aerospace Blockset"
+	      SourceProductBaseCode   "AE"
+	      ContentPreviewEnabled   off
+	      rotationOrder	      "ZYX"
+	      aMode		      "aMode"
+	    }
+	    Block {
+	      BlockType		      Selector
+	      Name		      "Selector"
+	      SID		      "339"
+	      Ports		      [1, 1]
+	      Position		      [235, 31, 260, 69]
+	      ZOrder		      -3
+	      InputPortWidth	      "3"
+	      IndexOptions	      "Index vector (dialog)"
+	      Indices		      "[3 2 1]"
+	      OutputSizes	      "1"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "E"
+	      SID		      "340"
+	      Position		      [285, 43, 315, 57]
+	      ZOrder		      -4
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      ZOrder		      1
+	      SrcBlock		      "Quaternions to Rotation Angles"
+	      SrcPort		      1
+	      DstBlock		      "Selector"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      2
+	      SrcBlock		      "q"
+	      SrcPort		      1
+	      DstBlock		      "Quaternions to Rotation Angles"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3
+	      SrcBlock		      "Selector"
+	      SrcPort		      1
+	      DstBlock		      "E"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Line {
+	  ZOrder		  15
+	  SrcBlock		  "states"
+	  SrcPort		  1
+	  DstBlock		  "Demux"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  16
+	  SrcBlock		  "Demux"
+	  SrcPort		  1
+	  DstBlock		  "cast6"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  17
+	  SrcBlock		  "Demux"
+	  SrcPort		  2
+	  DstBlock		  "cast5"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  18
+	  SrcBlock		  "Demux1"
+	  SrcPort		  1
+	  DstBlock		  "Gain2"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  19
+	  SrcBlock		  "Demux1"
+	  SrcPort		  3
+	  DstBlock		  "Gain4"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  20
+	  SrcBlock		  "Demux"
+	  SrcPort		  3
+	  DstBlock		  "cast4"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  23
+	  SrcBlock		  "Demux"
+	  SrcPort		  5
+	  Points		  [35, 0]
+	  Branch {
+	    ZOrder		    217
+	    DstBlock		    "cast2"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    216
+	    Points		    [0, 225]
+	    DstBlock		    "Demux4"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  26
+	  SrcBlock		  "phidot\nthetadot\npsidot"
+	  SrcPort		  1
+	  Points		  [52, 0; 0, -35]
+	  DstBlock		  "Demux1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  27
+	  SrcBlock		  "phidot\nthetadot\npsidot"
+	  SrcPort		  2
+	  Points		  [53, 0; 0, 125]
+	  DstBlock		  "Demux2"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  28
+	  SrcBlock		  "Demux"
+	  SrcPort		  6
+	  DstBlock		  "cast1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  29
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Flat Earth to LLA"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  30
+	  SrcBlock		  "Flat Earth to LLA"
+	  SrcPort		  1
+	  DstBlock		  "Selector"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  31
+	  SrcBlock		  "Selector"
+	  SrcPort		  1
+	  Points		  [35, 0; 0, -370]
+	  DstBlock		  "Demux3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  32
+	  SrcBlock		  "Demux3"
+	  SrcPort		  1
+	  DstBlock		  "Angle Conversion1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  33
+	  SrcBlock		  "Demux3"
+	  SrcPort		  2
+	  DstBlock		  "Angle Conversion"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  34
+	  SrcBlock		  "cast1"
+	  SrcPort		  1
+	  Points		  [55, 0; 0, -20]
+	  DstBlock		  "Flat Earth to LLA"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  35
+	  SrcBlock		  "cast2"
+	  SrcPort		  1
+	  Points		  [40, 0; 0, -30]
+	  DstBlock		  "phidot\nthetadot\npsidot"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  36
+	  SrcBlock		  "cast3"
+	  SrcPort		  1
+	  DstBlock		  "phidot\nthetadot\npsidot"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  37
+	  SrcBlock		  "cast4"
+	  SrcPort		  1
+	  Points		  [98, 0; 0, -250]
+	  DstBlock		  "Gain"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  38
+	  SrcBlock		  "cast5"
+	  SrcPort		  1
+	  DstBlock		  "Gain1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  39
+	  SrcBlock		  "cast6"
+	  SrcPort		  1
+	  DstBlock		  "cascvt"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  40
+	  SrcBlock		  "Flat Earth to LLA"
+	  SrcPort		  2
+	  Points		  [180, 0; 0, -340]
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  41
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "Scope for States"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  44
+	  SrcBlock		  "heading"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  45
+	  SrcBlock		  "quaternions to Euler"
+	  SrcPort		  1
+	  DstBlock		  "cast3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  46
+	  SrcBlock		  "Demux"
+	  SrcPort		  4
+	  DstBlock		  "quaternions to Euler"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  47
+	  SrcBlock		  "Demux"
+	  SrcPort		  7
+	  DstBlock		  "end1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  142
+	  SrcBlock		  "Gain3"
+	  SrcPort		  1
+	  DstBlock		  "Scope for States"
+	  DstPort		  5
+	}
+	Line {
+	  ZOrder		  141
+	  SrcBlock		  "Gain2"
+	  SrcPort		  1
+	  DstBlock		  "Scope for States"
+	  DstPort		  4
+	}
+	Line {
+	  ZOrder		  143
+	  SrcBlock		  "Gain4"
+	  SrcPort		  1
+	  DstBlock		  "Scope for States"
+	  DstPort		  6
+	}
+	Line {
+	  ZOrder		  25
+	  SrcBlock		  "Demux1"
+	  SrcPort		  2
+	  DstBlock		  "Gain3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  146
+	  SrcBlock		  "Gain"
+	  SrcPort		  1
+	  Points		  [75, 0]
+	  Branch {
+	    ZOrder		    218
+	    Points		    [0, 140]
+	    DstBlock		    "Scope for States"
+	    DstPort		    2
+	  }
+	  Branch {
+	    ZOrder		    162
+	    DstBlock		    "To Workspace"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  147
+	  SrcBlock		  "Gain1"
+	  SrcPort		  1
+	  Points		  [95, 0; 0, -5]
+	  DstBlock		  "Scope for States"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  208
+	  SrcBlock		  "Demux4"
+	  SrcPort		  1
+	  DstBlock		  "To Workspace2"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  209
+	  SrcBlock		  "Demux4"
+	  SrcPort		  3
+	  DstBlock		  "To Workspace3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  167
+	  SrcBlock		  "Demux4"
+	  SrcPort		  2
+	  DstBlock		  "To Workspace1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  219
+	  SrcBlock		  "cascvt"
+	  SrcPort		  1
+	  DstBlock		  "end2"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  220
+	  SrcBlock		  "Demux2"
+	  SrcPort		  1
+	  DstBlock		  "end3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  221
+	  SrcBlock		  "Demux2"
+	  SrcPort		  2
+	  DstBlock		  "end4"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  222
+	  SrcBlock		  "Demux2"
+	  SrcPort		  3
+	  DstBlock		  "end5"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  223
+	  SrcBlock		  "Angle Conversion1"
+	  SrcPort		  1
+	  DstBlock		  "end6"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  224
+	  SrcBlock		  "Angle Conversion"
+	  SrcPort		  1
+	  DstBlock		  "end7"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
       BlockType		      Reference
       Name		      "picth"
       SID		      "341"
@@ -9076,8 +9081,8 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"sensors"
-	Location		[1913, -7, 3847, 1047]
-	Open			on
+	Location		[-7, -7, 1543, 831]
+	Open			off
 	PortBlocksUseCompactNotation off
 	SetDomainSpec		off
 	DomainSpecType		"Deduce"
@@ -9096,7 +9101,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "states"
 	  SID			  "346"
-	  Position		  [505, 628, 535, 642]
+	  Position		  [420, 558, 450, 572]
 	  ZOrder		  -1
 	  IconDisplay		  "Port number"
 	}
@@ -9105,7 +9110,7 @@ Model {
 	  Name			  "-h sensor"
 	  SID			  "347"
 	  Ports			  [1, 1]
-	  Position		  [875, 873, 935, 907]
+	  Position		  [820, 798, 880, 832]
 	  ZOrder		  -2
 	  A			  "-50"
 	  B			  "50"
@@ -9117,7 +9122,7 @@ Model {
 	  Name			  "Demux"
 	  SID			  "348"
 	  Ports			  [1, 11]
-	  Position		  [585, 296, 590, 984]
+	  Position		  [500, 226, 505, 914]
 	  ZOrder		  -3
 	  BackgroundColor	  "black"
 	  ShowName		  off
@@ -9130,7 +9135,7 @@ Model {
 	  Name			  "Demux1"
 	  SID			  "349"
 	  Ports			  [1, 3]
-	  Position		  [795, 458, 800, 612]
+	  Position		  [710, 388, 715, 542]
 	  ZOrder		  -4
 	  BackgroundColor	  "black"
 	  ShowName		  off
@@ -9142,7 +9147,7 @@ Model {
 	  Name			  "Mux"
 	  SID			  "350"
 	  Ports			  [13, 1]
-	  Position		  [1005, 301, 1010, 979]
+	  Position		  [920, 229, 925, 901]
 	  ZOrder		  -5
 	  BackgroundColor	  "black"
 	  ShowName		  off
@@ -9155,7 +9160,7 @@ Model {
 	  Name			  "Vt sensor"
 	  SID			  "351"
 	  Ports			  [1, 1]
-	  Position		  [880, 323, 940, 357]
+	  Position		  [825, 248, 885, 282]
 	  ZOrder		  -6
 	  A			  "-50"
 	  B			  "50"
@@ -9167,7 +9172,7 @@ Model {
 	  Name			  "alpha sensor"
 	  SID			  "352"
 	  Ports			  [1, 1]
-	  Position		  [880, 423, 940, 457]
+	  Position		  [825, 348, 885, 382]
 	  ZOrder		  -7
 	  A			  "-50"
 	  B			  "50"
@@ -9179,7 +9184,7 @@ Model {
 	  Name			  "beta sensor"
 	  SID			  "353"
 	  Ports			  [1, 1]
-	  Position		  [880, 373, 940, 407]
+	  Position		  [825, 298, 885, 332]
 	  ZOrder		  -8
 	  A			  "-50"
 	  B			  "50"
@@ -9191,7 +9196,7 @@ Model {
 	  Name			  "p sensor"
 	  SID			  "354"
 	  Ports			  [1, 1]
-	  Position		  [830, 621, 975, 659]
+	  Position		  [745, 546, 890, 584]
 	  ZOrder		  -9
 	  LibraryVersion	  "1.66"
 	  FontAngle		  "italic"
@@ -9209,7 +9214,7 @@ Model {
 	  Name			  "phi sensor"
 	  SID			  "355"
 	  Ports			  [1, 1]
-	  Position		  [835, 471, 980, 509]
+	  Position		  [750, 396, 895, 434]
 	  ZOrder		  -10
 	  LibraryVersion	  "1.66"
 	  FontAngle		  "italic"
@@ -9227,7 +9232,7 @@ Model {
 	  Name			  "psi sensor"
 	  SID			  "356"
 	  Ports			  [1, 1]
-	  Position		  [830, 571, 975, 609]
+	  Position		  [745, 496, 890, 534]
 	  ZOrder		  -11
 	  LibraryVersion	  "1.66"
 	  FontAngle		  "italic"
@@ -9245,7 +9250,7 @@ Model {
 	  Name			  "q sensor"
 	  SID			  "357"
 	  Ports			  [1, 1]
-	  Position		  [830, 671, 975, 709]
+	  Position		  [745, 596, 890, 634]
 	  ZOrder		  -12
 	  LibraryVersion	  "1.66"
 	  FontAngle		  "italic"
@@ -9263,7 +9268,7 @@ Model {
 	  Name			  "quaternions to Euler"
 	  SID			  "358"
 	  Ports			  [1, 1]
-	  Position		  [675, 517, 760, 553]
+	  Position		  [575, 447, 660, 483]
 	  ZOrder		  -13
 	  RequestExecContextInheritance	off
 	  System {
@@ -9357,7 +9362,7 @@ Model {
 	  Name			  "r sensor"
 	  SID			  "363"
 	  Ports			  [1, 1]
-	  Position		  [830, 721, 975, 759]
+	  Position		  [745, 646, 890, 684]
 	  ZOrder		  -14
 	  LibraryVersion	  "1.66"
 	  FontAngle		  "italic"
@@ -9375,7 +9380,7 @@ Model {
 	  Name			  "theta sensor"
 	  SID			  "364"
 	  Ports			  [1, 1]
-	  Position		  [875, 523, 935, 557]
+	  Position		  [825, 448, 885, 482]
 	  ZOrder		  -15
 	  A			  "-50"
 	  B			  "50"
@@ -9386,7 +9391,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "states_filtered"
 	  SID			  "365"
-	  Position		  [1070, 633, 1100, 647]
+	  Position		  [985, 558, 1015, 572]
 	  ZOrder		  -16
 	  IconDisplay		  "Port number"
 	}
@@ -9465,7 +9470,6 @@ Model {
 	  ZOrder		  11
 	  SrcBlock		  "Demux1"
 	  SrcPort		  1
-	  Points		  [13, 0; 0, 5]
 	  DstBlock		  "phi sensor"
 	  DstPort		  1
 	}
@@ -9473,7 +9477,6 @@ Model {
 	  ZOrder		  12
 	  SrcBlock		  "Demux1"
 	  SrcPort		  2
-	  Points		  [52, 0; 0, 5]
 	  DstBlock		  "theta sensor"
 	  DstPort		  1
 	}
@@ -9481,7 +9484,6 @@ Model {
 	  ZOrder		  13
 	  SrcBlock		  "Demux1"
 	  SrcPort		  3
-	  Points		  [9, 0; 0, 5]
 	  DstBlock		  "psi sensor"
 	  DstPort		  1
 	}
@@ -9510,6 +9512,7 @@ Model {
 	  ZOrder		  17
 	  SrcBlock		  "Demux"
 	  SrcPort		  1
+	  Points		  [0, -5]
 	  DstBlock		  "Vt sensor"
 	  DstPort		  1
 	}
@@ -9517,7 +9520,7 @@ Model {
 	  ZOrder		  18
 	  SrcBlock		  "Demux"
 	  SrcPort		  2
-	  Points		  [140, 0; 0, -10]
+	  Points		  [0, -15]
 	  DstBlock		  "beta sensor"
 	  DstPort		  1
 	}
@@ -9525,7 +9528,7 @@ Model {
 	  ZOrder		  19
 	  SrcBlock		  "Demux"
 	  SrcPort		  3
-	  Points		  [0, -20]
+	  Points		  [0, -25]
 	  DstBlock		  "alpha sensor"
 	  DstPort		  1
 	}
@@ -9533,7 +9536,7 @@ Model {
 	  ZOrder		  20
 	  SrcBlock		  "Demux"
 	  SrcPort		  4
-	  Points		  [38, 0; 0, 15]
+	  Points		  [20, 0; 0, 15]
 	  DstBlock		  "quaternions to Euler"
 	  DstPort		  1
 	}
@@ -9541,7 +9544,7 @@ Model {
 	  ZOrder		  21
 	  SrcBlock		  "Demux"
 	  SrcPort		  5
-	  Points		  [110, 0; 0, 60]
+	  Points		  [110, 0; 0, 55]
 	  DstBlock		  "p sensor"
 	  DstPort		  1
 	}
@@ -9549,7 +9552,7 @@ Model {
 	  ZOrder		  22
 	  SrcBlock		  "Demux"
 	  SrcPort		  6
-	  Points		  [100, 0; 0, 50]
+	  Points		  [100, 0; 0, 45]
 	  DstBlock		  "q sensor"
 	  DstPort		  1
 	}
@@ -9557,7 +9560,7 @@ Model {
 	  ZOrder		  23
 	  SrcBlock		  "Demux"
 	  SrcPort		  7
-	  Points		  [110, 0; 0, 40]
+	  Points		  [110, 0; 0, 35]
 	  DstBlock		  "r sensor"
 	  DstPort		  1
 	}
@@ -9565,7 +9568,7 @@ Model {
 	  ZOrder		  24
 	  SrcBlock		  "Demux"
 	  SrcPort		  8
-	  Points		  [195, 0; 0, 30]
+	  Points		  [195, 0; 0, 25]
 	  DstBlock		  "Mux"
 	  DstPort		  10
 	}
@@ -9573,7 +9576,7 @@ Model {
 	  ZOrder		  25
 	  SrcBlock		  "Demux"
 	  SrcPort		  9
-	  Points		  [195, 0; 0, 20]
+	  Points		  [195, 0; 0, 15]
 	  DstBlock		  "Mux"
 	  DstPort		  11
 	}
@@ -9581,7 +9584,7 @@ Model {
 	  ZOrder		  26
 	  SrcBlock		  "Demux"
 	  SrcPort		  10
-	  Points		  [153, 0; 0, 10]
+	  Points		  [145, 0; 0, 5]
 	  DstBlock		  "-h sensor"
 	  DstPort		  1
 	}
@@ -9589,6 +9592,7 @@ Model {
 	  ZOrder		  27
 	  SrcBlock		  "Demux"
 	  SrcPort		  11
+	  Points		  [195, 0; 0, -5]
 	  DstBlock		  "Mux"
 	  DstPort		  13
 	}
@@ -9675,7 +9679,7 @@ Model {
       Points		      [10, 0]
       Branch {
 	ZOrder			6
-	DstBlock		"Display Results"
+	DstBlock		"flightgear"
 	DstPort			1
       }
       Branch {

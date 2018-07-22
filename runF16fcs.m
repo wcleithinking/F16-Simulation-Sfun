@@ -24,7 +24,7 @@ c = sqrt(1.4*287.06*(288.15-0.0065*altitude));
 velocity = Mach*c;
 simtime = 80;
 
-%% Initial Conditions for trim routine.
+%% Initial conditions for trim routine.
 %================================================
 % The following values seem to trim to most flight condition.
 % If the F16 does not trim, change these values.
