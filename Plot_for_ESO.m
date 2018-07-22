@@ -32,3 +32,18 @@ grid on;
 title('Disturbance in $\dot{\beta}$','interpreter','latex','fontsize',FontSize);
 legend({'$\hat{d}_{\beta}$'},'interpreter','latex','fontsize',FontSize);
 set(gca,'Fontname','Times','FontSize',FontSize);
+
+figure('name','ESO results for q')
+subplot(2,1,1)
+plot(simout_q.time,180/pi*simout_q.signals.values,'r-','linewidth',2); hold on;
+plot(simout_hat_q.time,180/pi*simout_hat_q.signals.values,'b-.','linewidth',2); hold on;
+grid on;
+title('Angular Rate (degree/s)','interpreter','latex','fontsize',FontSize);
+legend({'$q$','$\hat{q}$'},'interpreter','latex','fontsize',FontSize);
+set(gca,'Fontname', 'Times','FontSize',FontSize);
+subplot(2,1,2)
+plot(simout_hat_d_q.time,simout_hat_d_q.signals.values,'b-.','linewidth',2); hold on;
+grid on;
+title('Disturbance in $\dot{q}$','interpreter','latex','fontsize',FontSize);
+legend({'$\hat{d}_{q}$'},'interpreter','latex','fontsize',FontSize);
+set(gca,'Fontname','Times','FontSize',FontSize);
