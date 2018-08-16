@@ -5,12 +5,12 @@
 /*-----------------------------------------------------------------------*/
 /*                                                                       */
 /* Based on the F-16 model created by R. S. Russel in                    */
-/* "Nonlinear F-16 simulation using Simulink and Matlab"                 */   
+/* "Nonlinear F-16 simulation using Simulink and Matlab"                 */
 /* 2003 University of Minnesota and on the F-16 model                    */
 /* created by Ying Huo in "Model of F-16 Fighter Aircraft"               */
 /*                                                                       */
 /* Aerodynamic data and the engine model have been obtained from         */
-/* "NASA Technical Paper 1538" by Nguyen et al. 1979                     */   
+/* "NASA Technical Paper 1538" by Nguyen et al. 1979                     */
 /*                                                                       */
 /* File "F16_dyn.c"                                                      */
 /* Version 1.2 by E.R. van Oort & L. Sonneveldt                          */
@@ -23,8 +23,8 @@
 /* -Flag is used to select between hifi and lofi aerodynamic model.      */
 /* -Hifi aerodata is obtained from "aerodata/hifi_f16_aerodata.c"        */
 /* -Lofi aerodata is obtained from "aerodata/lofi_f16_aerodata.c"        */
-/* -"aerodata/mexndinterp.c" is used for interpolation of the data.      */                                                                    
-/* -"aerodata/engine_model.c" contains the engine model.                 */  
+/* -"aerodata/mexndinterp.c" is used for interpolation of the data.      */
+/* -"aerodata/engine_model.c" contains the engine model.                 */
 /* -"aerodata/ISA_atmos.c" contains the ISA atmosphere model.            */
 /*                                                                       */
 /*-----------------------------------------------------------------------*/
@@ -96,19 +96,19 @@
 /*		nz          normal acceleration z-axis                  [-]		 */
 /*																		 */
 /*  Real work vector: (Persistant memory)                    			 */
-/*      C1          coefficients used in moment equations       [-]      */   
-/*      C2                                                               */      
-/*      C3                                                               */              
-/*      C4                                                               */              
-/*      C5                                                               */             
-/*      C6                                                               */              
-/*      C7                                                               */              
-/*      C8                                                               */              
-/*      C9                                                               */              
-/*      Xbar         total force in body fixed x-axis           [N]      */   
-/*      Ybar         total force in body fixed y-axis           [N]      */  
-/*      Zbar         total force in body fixed z-axis           [N]      */  
-/*      Lbar         total moment in body fixed x-axis          [Nm]     */  
+/*      C1          coefficients used in moment equations       [-]      */
+/*      C2                                                               */
+/*      C3                                                               */
+/*      C4                                                               */
+/*      C5                                                               */
+/*      C6                                                               */
+/*      C7                                                               */
+/*      C8                                                               */
+/*      C9                                                               */
+/*      Xbar         total force in body fixed x-axis           [N]      */
+/*      Ybar         total force in body fixed y-axis           [N]      */
+/*      Zbar         total force in body fixed z-axis           [N]      */
+/*      Lbar         total moment in body fixed x-axis          [Nm]     */
 /*      Mbar         total moment in body fixed y-axis          [Nm]     */
 /*      Nbar         total moment in body fixed z-axis          [Nm]     */
 /*      u_body       velocity in body fixed x-axis              [m/s]	 */
@@ -124,12 +124,22 @@
 /*		nz           normal acceleration z-axis                 [-]		 */
 /*                                                                       */
 /*-----------------------------------------------------------------------*/
+
+
+/*
+ * You must specify the S_FUNCTION_NAME as the name of your S-function
+ * (i.e. replace sfuntmpl_basic with the name of your S-function).
+ */
 #define S_FUNCTION_NAME  F16_dyn
 #define S_FUNCTION_LEVEL 2
- 
+
 /* include files */
-#include <math.h>
+/*
+ * Need to include simstruc.h for the definition of the SimStruct and
+ * its associated macro definitions.
+ */
 #include "simstruc.h"
+#include <math.h>
 
 #include "aerodata/mexndinterp.c"
 #include "aerodata/hifi_f16_aerodata.c"     /* hifi lookup tables */
@@ -139,7 +149,7 @@
 #include "aerodata/engine_model.c"          /* engine model */
 
 /* input port 1: control inputs */
-#define dth             (*u[0])
+#define dth             (*u[0]) // u can be replaced by u1
 #define de              (*u[1])
 #define da              (*u[2])
 #define dr              (*u[3])
@@ -215,6 +225,13 @@
 #define ny              ssGetRWork(S)[24]
 #define nz              ssGetRWork(S)[25]
 
+#define CX_tot          ssGetRWork(S)[26]
+#define CY_tot          ssGetRWork(S)[27]
+#define CZ_tot          ssGetRWork(S)[28]
+#define Cl_tot          ssGetRWork(S)[29]
+#define Cm_tot          ssGetRWork(S)[30]
+#define Cn_tot          ssGetRWork(S)[31]
+
 /* Aircraft Parameters */
 #define mass        9295.44 /*assumed fixed*/
 #define Ixx         12874.8
@@ -236,146 +253,188 @@
 /*=============================*/
 /* Function: mdlInitalizeSizes */
 /*=============================*/
+/* Function: mdlInitializeSizes ===============================================
+ * Abstract:
+ *    The sizes information is used by Simulink to determine the S-function
+ *    block's characteristics (number of inputs, outputs, states, etc.).
+ */
 static void mdlInitializeSizes(SimStruct *S)
 {
     ssSetNumSFcnParams(S, 1);  /* Number of expected parameters */
-
-    ssSetNumContStates(S, 14);
-    ssSetNumDiscStates(S, 0);
-
-    ssSetNumInputPorts(S, 3);
-    ssSetInputPortWidth(S, 0, 4);
-    ssSetInputPortWidth(S, 1, 1);
-    ssSetInputPortWidth(S, 2, 1);
-
-    ssSetNumOutputPorts(S, 2);
-    ssSetOutputPortWidth(S, 0, 14);
-    ssSetOutputPortWidth(S, 1, 2);
-
-    ssSetNumSampleTimes(S, 1);
-    ssSetNumRWork(S, 26);
+    if (ssGetNumSFcnParams(S) != ssGetSFcnParamsCount(S)) {
+        return;
+    }
+    
+    ssSetNumContStates(S, 14);  // 连续状态数目：14个
+    ssSetNumDiscStates(S, 0);   // 离散状态数目：0个
+    
+    if (!ssSetNumInputPorts(S, 3)) return;   // 三个输入端口
+    ssSetInputPortWidth(S, 0, 4);   // 4维
+    ssSetInputPortWidth(S, 1, 1);   // 1维
+    ssSetInputPortWidth(S, 2, 1);   // 1维
+    
+    // ssSetInputPortRequiredContiguous(S, 0, true);
+    // ssSetInputPortDirectFeedThrough(S, 0, 1);
+    
+    if (!ssSetNumOutputPorts(S, 3)) return;  // 输出端口个数
+    ssSetOutputPortWidth(S, 0, 14); // 14维
+    ssSetOutputPortWidth(S, 1, 2);  // 2维
+    ssSetOutputPortWidth(S, 2, 6);
+    
+    ssSetNumSampleTimes(S, 1);  // 采样时间1s
+    ssSetNumRWork(S, 32);
     ssSetNumIWork(S, 0);
     ssSetNumPWork(S, 0);
     ssSetNumModes(S, 0);
     ssSetNumNonsampledZCs(S, 0);
-
+    
+    // ssSetSimStateCompliance(S, USE_DEFAULT_SIM_STATE);
+    
     ssSetOptions(S, 0);
 }
 
 /*===================================*/
 /* Function: mdlInitalizeSampleTimes */
 /*===================================*/
+/* Function: mdlInitializeSampleTimes =========================================
+ * Abstract:
+ *    This function is used to specify the sample time(s) for your
+ *    S-function. You must register the same number of sample times as
+ *    specified in ssSetNumSampleTimes.
+ */
 static void mdlInitializeSampleTimes(SimStruct *S)
 {
     ssSetSampleTime(S, 0, CONTINUOUS_SAMPLE_TIME);
     ssSetOffsetTime(S, 0, 0.0);
-
+    
 }
 
 /*==================================*/
 /* Function: mdlInitalizeConditions */
 /*==================================*/
 
-#define MDL_INITIALIZE_CONDITIONS  
+#define MDL_INITIALIZE_CONDITIONS
 #if defined(MDL_INITIALIZE_CONDITIONS)
-
+/* Function: mdlInitializeConditions ========================================
+ * Abstract:
+ *    In this function, you should initialize the continuous and discrete
+ *    states for your S-function block.  The initial states are placed
+ *    in the state vector, ssGetContStates(S) or ssGetRealDiscStates(S).
+ *    You can also perform any other initialization activities that your
+ *    S-function may require. Note, this routine will be called at the
+ *    start of simulation and if it is present in an enabled subsystem
+ *    configured to reset states, it will be call when the enabled subsystem
+ *    restarts execution to reset the states.
+ */
 static void mdlInitializeConditions(SimStruct *S)
 {
 }
-#endif 
+#endif
 
 /*====================*/
 /* Function: mdlStart */
 /*====================*/
-#define MDL_START 
-#if defined(MDL_START) 
-
+#define MDL_START
+#if defined(MDL_START)
+/* Function: mdlStart =======================================================
+ * Abstract:
+ *    This function is called once at start of model execution. If you
+ *    have states that should be initialized once, this is the place
+ *    to do it.
+ */
 static void mdlStart(SimStruct *S)
 {
     real_T *x = ssGetContStates(S);
-	int i;
-        
-	/* Initialize the state vector */
-	for (i = 0; i < ssGetNumContStates(S); i++)
-	{
-        x[i] = mxGetPr(ssGetSFcnParam(S, 0))[i];    
-	}
+    
+    /* Initialize the state vector */
+    int i;
+    for (i = 0; i < ssGetNumContStates(S); i++)
+    {
+        x[i] = mxGetPr(ssGetSFcnParam(S, 0))[i];
+    }
 }
-#endif 
+#endif
 
 
 
 /*======================*/
 /* Function: mdlOutputs */
 /*======================*/
+/* Function: mdlOutputs =======================================================
+ * Abstract:
+ *    In this function, you compute the outputs of your S-function
+ *    block.
+ */
 static void mdlOutputs(SimStruct *S, int_T tid)
 {
-	real_T *x = ssGetContStates(S);
+    real_T *x = ssGetContStates(S);
     real_T *y = ssGetOutputPortRealSignal(S, 0);
     real_T *y1 = ssGetOutputPortRealSignal(S, 1);
+    real_T *y2 = ssGetOutputPortRealSignal(S, 2);
     
-	int i;
-	 
-	for (i = 0; i < ssGetNumContStates(S); i++)
-	{
+    int i;
+    for (i = 0; i < ssGetNumContStates(S); i++)
+    {
         y[i] = x[i]; /* outputs are the states */
-	}
+    }
     
     y1[0] = ny;
     y1[1] = nz;
+    
+    y2[0] = CX_tot;
+    y2[1] = CY_tot;
+    y2[2] = CZ_tot;
+    y2[3] = Cl_tot;
+    y2[4] = Cm_tot;
+    y2[5] = Cn_tot;
 }
 
 
 /*=====================*/
 /* Function: mdlUpdate */
 /*=====================*/
-#undef MDL_UPDATE  
+/* Function: mdlUpdate ======================================================
+ * Abstract:
+ *    This function is called once for every major integration time step.
+ *    Discrete states are typically updated here, but this function is useful
+ *    for performing any tasks that should only take place once per
+ *    integration step.
+ */
+#undef MDL_UPDATE
 #if defined(MDL_UPDATE)
-  static void mdlUpdate(SimStruct *S, int_T tid)
-  {
-  }
+static void mdlUpdate(SimStruct *S, int_T tid)
+{
+}
 #endif
 
 
 /*==========================*/
 /* Function: mdlDerivatives */
 /*==========================*/
-#define MDL_DERIVATIVES  
+/* Function: mdlDerivatives =================================================
+ * Abstract:
+ *    In this function, you compute the S-function block's derivatives.
+ *    The derivatives are placed in the derivative vector, ssGetdX(S).
+ */
+#define MDL_DERIVATIVES
 #if defined(MDL_DERIVATIVES)
-  static void mdlDerivatives(SimStruct *S)
-  {
+static void mdlDerivatives(SimStruct *S)
+{
     real_T *x  = ssGetContStates(S);
     real_T *dx = ssGetdX(S);
     
-    InputRealPtrsType u = ssGetInputPortRealSignalPtrs(S, 0);
+    InputRealPtrsType u  = ssGetInputPortRealSignalPtrs(S, 0);
     InputRealPtrsType u2 = ssGetInputPortRealSignalPtrs(S, 1);
     InputRealPtrsType u3 = ssGetInputPortRealSignalPtrs(S, 2);
     
     /* Declare a lot of variables */
-    
     double *temp;
-    double Gamma;
-    double CX_tot, CY_tot, CZ_tot, Cl_tot, Cm_tot, Cn_tot;
-	double Cx, Cz, Cm, Cy, Cn, Cl;
-    double Cxq, Cyr, Cyp, Czq, Clr, Clp, Cmq, Cnr, Cnp;
-    double delta_Cx_lef, delta_Cz_lef,delta_Cm_lef;
-    double delta_Cy_lef,delta_Cn_lef,delta_Cl_lef;
-    double delta_Cxq_lef, delta_Cyr_lef, delta_Cyp_lef, delta_Czq_lef; 
-    double delta_Clr_lef, delta_Clp_lef, delta_Cmq_lef, delta_Cnr_lef;
-    double delta_Cnp_lef;
-    double delta_Cy_r30, delta_Cn_r30, delta_Cl_r30;
-    double delta_Cy_a20, delta_Cy_a20_lef, delta_Cn_a20, delta_Cn_a20_lef;
-    double delta_Cl_a20, delta_Cl_a20_lef;
-    double delta_Cnbeta, delta_Clbeta, delta_Cm, eta_el, delta_Cm_ds;
-	double da_norm, dr_norm, dlef_norm;
-	double ALPHA, BETA, DE, DA, DR, DLEF, alpha_lef;
-    double cpow, g, dq;
-      
-    temp = (double *)malloc(9*sizeof(double)); 
+    temp = (double *)malloc(9*sizeof(double));
     
     /* Usefull notation of moments of inertia,
-     see e.g. Lewis and Stevens "Aircraft control and simulation" */
-    Gamma = Ixx * Izz - (Ixz  * Ixz);
+     * see e.g. Lewis and Stevens "Aircraft control and simulation" */
+    double Gamma = Ixx * Izz - (Ixz  * Ixz);
+    // 初始化 ssGetRWork(S)
     C1 = ((Iyy - Izz)  * Izz  - (Ixz * Ixz))/ Gamma;
     C2 = ((Ixx - Iyy + Izz ) * Ixz ) / Gamma;
     C3 = Izz / Gamma;
@@ -384,58 +443,77 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     C6 = Ixz / Iyy ;
     C7 = 1 / Iyy;
     C8 = (Ixx * (Ixx - Iyy ) + Ixz * Ixz) / Gamma;
-    C9 = Ixx / Gamma;  
+    C9 = Ixx / Gamma;
     
     /* ISA atmosphere */
+    double g;
     atmos(-z_earth, Vt, temp);
-        Mach = temp[0];
-        qbar = temp[1];  
-        g    = temp[2];
-        
+    Mach = temp[0];
+    qbar = temp[1];
+    g    = temp[2];
+    
     /* Engine model, based on Ying Huo's m-files */
-    cpow = tgear (dth);
+    double cpow;
+    cpow = tgear(dth);
     pow_dot = pdot ( power, cpow );
-    Thrust = thrst ( power, -z_earth, Mach ); 
+    Thrust = thrst ( power, -z_earth, Mach );
     
     /* Body velocity components */
     u_body = Vt * cos(alpha) * cos(beta);
     v_body = Vt * sin(beta);
     w_body = Vt * sin(alpha) * cos(beta);
-	 
+    
     /* Transformation rad to deg for the lookup tables */
+    double ALPHA, BETA, DE, DA, DR, DLEF;
     ALPHA = alpha * rtd;
     BETA = beta * rtd;
-	DE = de * rtd;
-	DA = da * rtd;
-	DR = dr * rtd;	 
-	DLEF = dlef * rtd;	 
+    DE = de * rtd;
+    DA = da * rtd;
+    DR = dr * rtd;
+    DLEF = dlef * rtd;
     
-	/* LEF tables are only valid up until alpha = 45 degrees*/
-	if (ALPHA > 45)
-	{
-	alpha_lef = 45;
-	}
-	else
-	{
-	alpha_lef = ALPHA;
-	}
+    /* LEF tables are only valid up until alpha = 45 degrees*/
+    double alpha_lef;
+    if (ALPHA > 45)
+    {
+        alpha_lef = 45;
+    }
+    else
+    {
+        alpha_lef = ALPHA;
+    }
     
     /* Limit of elevator deflection is 25 degrees*/
-	if (DE > 25)
-	{
-	DE = 25;
-	}
-	if (DE < -25)
-	{
-	DE = -25;
-	}	 
+    if (DE > 25)
+    {
+        DE = 25;
+    }
+    if (DE < -25)
+    {
+        DE = -25;
+    }
     
     /* Normalizing the control deflections */
-	da_norm = DA/21.5;
-	dr_norm = DR/30.0;
-      
+    double da_norm, dr_norm;
+    da_norm = DA/21.5;
+    dr_norm = DR/30.0;
+    
+    double dlef_norm;
+    double Cx, Cz, Cm, Cy, Cn, Cl;
+    double Cxq, Cyr, Cyp, Czq, Clr, Clp, Cmq, Cnr, Cnp;
+    double delta_Cx_lef, delta_Cz_lef,delta_Cm_lef;
+    double delta_Cy_lef,delta_Cn_lef,delta_Cl_lef;
+    double delta_Cxq_lef, delta_Cyr_lef, delta_Cyp_lef, delta_Czq_lef;
+    double delta_Clr_lef, delta_Clp_lef, delta_Cmq_lef, delta_Cnr_lef;
+    double delta_Cnp_lef;
+    double delta_Cy_r30, delta_Cn_r30, delta_Cl_r30;
+    double delta_Cy_a20, delta_Cy_a20_lef, delta_Cn_a20, delta_Cn_a20_lef;
+    double delta_Cl_a20, delta_Cl_a20_lef;
+    double delta_Cnbeta, delta_Clbeta, delta_Cm, eta_el, delta_Cm_ds;
+    double dq;
+    
     if (fi_flag == 1)          /* hifi lookup tables */
-    {   
+    {
         
         dlef_norm = (1 - DLEF/25.0);
         
@@ -445,7 +523,7 @@ static void mdlOutputs(SimStruct *S, int_T tid)
         Cl = _Cl(ALPHA, BETA, DE);
         Cm = _Cm(ALPHA, BETA, DE);
         Cn = _Cn(ALPHA, BETA, DE);
-	 
+        
         Cxq = _CXq(ALPHA);
         Cyp = _CYp(ALPHA);
         Cyr = _CYr(ALPHA);
@@ -455,14 +533,14 @@ static void mdlOutputs(SimStruct *S, int_T tid)
         Cmq = _CMq(ALPHA);
         Cnp = _CNp(ALPHA);
         Cnr = _CNr(ALPHA);
-	 
+        
         delta_Cx_lef = _Cx_lef(alpha_lef, BETA) - _Cx(ALPHA, BETA, 0);
         delta_Cy_lef = _Cy_lef(alpha_lef, BETA) - _Cy(ALPHA, BETA);
         delta_Cz_lef = _Cz_lef(alpha_lef, BETA) - _Cz(ALPHA, BETA, 0);
         delta_Cl_lef = _Cl_lef(alpha_lef, BETA) - _Cl(ALPHA, BETA, 0);
         delta_Cm_lef = _Cm_lef(alpha_lef, BETA) - _Cm(ALPHA, BETA, 0);
         delta_Cn_lef = _Cn_lef(alpha_lef, BETA) - _Cn(ALPHA, BETA, 0);
-	 
+        
         delta_Cxq_lef = _delta_CXq_lef(alpha_lef);
         delta_Cyp_lef = _delta_CYp_lef(alpha_lef);
         delta_Cyr_lef = _delta_CYr_lef(alpha_lef);
@@ -472,61 +550,61 @@ static void mdlOutputs(SimStruct *S, int_T tid)
         delta_Cmq_lef = _delta_CMq_lef(alpha_lef);
         delta_Cnp_lef = _delta_CNp_lef(alpha_lef);
         delta_Cnr_lef = _delta_CNr_lef(alpha_lef);
-	 
+        
         delta_Cy_r30 = _Cy_r30(ALPHA, BETA) - _Cy(ALPHA, BETA);
         delta_Cl_r30 = _Cl_r30(ALPHA, BETA) - _Cl(ALPHA, BETA, 0);
         delta_Cn_r30 = _Cn_r30(ALPHA, BETA) - _Cn(ALPHA, BETA, 0);
-	 
+        
         delta_Cy_a20     = _Cy_a20(ALPHA, BETA) - _Cy(ALPHA, BETA);
-        delta_Cy_a20_lef = _Cy_a20_lef(alpha_lef, BETA) - 
-            _Cy_lef(alpha_lef, BETA) - delta_Cy_a20;
+        delta_Cy_a20_lef = _Cy_a20_lef(alpha_lef, BETA) -
+                _Cy_lef(alpha_lef, BETA) - delta_Cy_a20;
         delta_Cn_a20     = _Cn_a20(ALPHA, BETA) - _Cn(ALPHA, BETA, 0);
-        delta_Cn_a20_lef = _Cn_a20_lef(alpha_lef, BETA) - 
-            _Cn_lef(alpha_lef, BETA) - delta_Cn_a20;
+        delta_Cn_a20_lef = _Cn_a20_lef(alpha_lef, BETA) -
+                _Cn_lef(alpha_lef, BETA) - delta_Cn_a20;
         delta_Cl_a20     = _Cl_a20(ALPHA, BETA) - _Cl(ALPHA, BETA, 0);
-        delta_Cl_a20_lef = _Cl_a20_lef(alpha_lef, BETA) - 
-            _Cl_lef(alpha_lef, BETA) - delta_Cl_a20;
-
+        delta_Cl_a20_lef = _Cl_a20_lef(alpha_lef, BETA) -
+                _Cl_lef(alpha_lef, BETA) - delta_Cl_a20;
+        
         delta_Cnbeta = _delta_CNbeta(ALPHA);
         delta_Clbeta = _delta_CLbeta(ALPHA);
         delta_Cm     = _delta_Cm(ALPHA);
         eta_el       = _eta_el(DE);
         delta_Cm_ds  = _delta_Cm_ds(ALPHA,DE);
     }
-
-else if (fi_flag == 0)  /* lofi lookup tables (do not include dlef) */
-    {  
+    
+    else if (fi_flag == 0)  /* lofi lookup tables (do not include dlef) */
+    {
         dlef_norm = 0.0;
-
+        
         damping(ALPHA, temp);
-            Cxq = temp[0];
-            Cyr = temp[1];
-            Cyp = temp[2];
-            Czq = temp[3];
-            Clr = temp[4];
-            Clp = temp[5];
-            Cmq = temp[6];
-            Cnr = temp[7];
-            Cnp = temp[8];
+        Cxq = temp[0];
+        Cyr = temp[1];
+        Cyp = temp[2];
+        Czq = temp[3];
+        Clr = temp[4];
+        Clp = temp[5];
+        Cmq = temp[6];
+        Cnr = temp[7];
+        Cnp = temp[8];
         
         dmomdcon(ALPHA, BETA, temp);
-            delta_Cl_a20 = temp[0];    
-            delta_Cl_r30 = temp[1];    
-            delta_Cn_a20 = temp[2];    
-            delta_Cn_r30 = temp[3];    
-
+        delta_Cl_a20 = temp[0];
+        delta_Cl_r30 = temp[1];
+        delta_Cn_a20 = temp[2];
+        delta_Cn_r30 = temp[3];
+        
         clcn(ALPHA, BETA, temp);
-            Cl = temp[0];
-            Cn = temp[1];
-
+        Cl = temp[0];
+        Cn = temp[1];
+        
         cxcm(ALPHA, DE, temp);
-            Cx = temp[0];
-            Cm = temp[1];
-
-            Cy = -.02*BETA + .021*da_norm + .086*dr_norm;
-
+        Cx = temp[0];
+        Cm = temp[1];
+        
+        Cy = -.02*BETA + .021*da_norm + .086*dr_norm;
+        
         cz(ALPHA, BETA, DE, temp);
-            Cz = temp[0];  
+        Cz = temp[0];
         
         /* All other coeffcients are zero for the lofi model */
         delta_Cx_lef    = 0.0;
@@ -552,47 +630,47 @@ else if (fi_flag == 0)  /* lofi lookup tables (do not include dlef) */
         delta_Cnbeta    = 0.0;
         delta_Clbeta    = 0.0;
         delta_Cm        = 0.0;
-        eta_el          = 1.0; 
+        eta_el          = 1.0;
         delta_Cm_ds     = 0.0;
     }
-
-    /* Total force coefficients */
     
+    /* Total force coefficients */
+  
     /* Cx_tot */
-	CX_tot = Cx + delta_Cx_lef * dlef_norm 
-     + (cref/(2*Vt))*(Cxq + delta_Cxq_lef * dlef_norm) * q_body;
+    CX_tot = Cx + delta_Cx_lef * dlef_norm
+            + (cref/(2*Vt))*(Cxq + delta_Cxq_lef * dlef_norm) * q_body;
     /* Cy_tot */
-    CY_tot = Cy + delta_Cy_lef * dlef_norm 
-     + (delta_Cy_a20 + delta_Cy_a20_lef * dlef_norm) * da_norm
-     + delta_Cy_r30 * dr_norm 
-     + (bref / (2*Vt))*(Cyr + delta_Cyr_lef * dlef_norm) * r_body 
-     + (bref/(2*Vt))*(Cyp + delta_Cyp_lef * dlef_norm) * p_body;
+    CY_tot = Cy + delta_Cy_lef * dlef_norm
+            + (delta_Cy_a20 + delta_Cy_a20_lef * dlef_norm) * da_norm
+            + delta_Cy_r30 * dr_norm
+            + (bref / (2*Vt))*(Cyr + delta_Cyr_lef * dlef_norm) * r_body
+            + (bref/(2*Vt))*(Cyp + delta_Cyp_lef * dlef_norm) * p_body;
     /* Cz_tot */
-    CZ_tot = Cz + delta_Cz_lef * dlef_norm 
-     + (cref/(2*Vt))*(Czq + delta_Czq_lef * dlef_norm) * q_body;
+    CZ_tot = Cz + delta_Cz_lef * dlef_norm
+            + (cref/(2*Vt))*(Czq + delta_Czq_lef * dlef_norm) * q_body;
     
     /* Total moment coefficients */
     
     /* Cl_tot */
-    Cl_tot = Cl + delta_Cl_lef * dlef_norm 
-     + (delta_Cl_a20 + delta_Cl_a20_lef * dlef_norm) * da_norm
-     + delta_Cl_r30 * dr_norm 
-     + (bref / ((2*Vt))*(Clr + delta_Clr_lef * dlef_norm)) * r_body 
-     + ((bref / (2*Vt)) * (Clp + delta_Clp_lef * dlef_norm)) * p_body 
-     + delta_Clbeta * beta * rtd;
+    Cl_tot = Cl + delta_Cl_lef * dlef_norm
+            + (delta_Cl_a20 + delta_Cl_a20_lef * dlef_norm) * da_norm
+            + delta_Cl_r30 * dr_norm
+            + (bref / ((2*Vt))*(Clr + delta_Clr_lef * dlef_norm)) * r_body
+            + ((bref / (2*Vt)) * (Clp + delta_Clp_lef * dlef_norm)) * p_body
+            + delta_Clbeta * beta * rtd;
     /* Cm_tot */
-    Cm_tot = Cm * eta_el + CZ_tot * (xcgr - xcg) + delta_Cm_lef * dlef_norm 
-     + (cref / (2*Vt))*(Cmq + delta_Cmq_lef * dlef_norm) * q_body 
-     + delta_Cm + delta_Cm_ds;
+    Cm_tot = Cm * eta_el + CZ_tot * (xcgr - xcg) + delta_Cm_lef * dlef_norm
+            + (cref / (2*Vt))*(Cmq + delta_Cmq_lef * dlef_norm) * q_body
+            + delta_Cm + delta_Cm_ds;
     /* Cn_tot */
-    Cn_tot = Cn + delta_Cn_lef * dlef_norm 
-     - CY_tot * (xcgr - xcg)*(cref/bref) 
-     + (delta_Cn_a20 + delta_Cn_a20_lef * dlef_norm) * da_norm 
-     + ((bref / (2*Vt)) * (Cnr + delta_Cnr_lef * dlef_norm))* r_body
-     + ((bref / (2*Vt)) * (Cnp + delta_Cnp_lef * dlef_norm)) * p_body 
-     + delta_Cn_r30 * dr_norm + delta_Cnbeta * beta * rtd;
-	
-	/* Total forces */
+    Cn_tot = Cn + delta_Cn_lef * dlef_norm
+            - CY_tot * (xcgr - xcg)*(cref/bref)
+            + (delta_Cn_a20 + delta_Cn_a20_lef * dlef_norm) * da_norm
+            + ((bref / (2*Vt)) * (Cnr + delta_Cnr_lef * dlef_norm))* r_body
+            + ((bref / (2*Vt)) * (Cnp + delta_Cnp_lef * dlef_norm)) * p_body
+            + delta_Cn_r30 * dr_norm + delta_Cnbeta * beta * rtd;
+    
+    /* Total forces */
     Xbar = qbar * Sref * CX_tot;
     Ybar = qbar * Sref * CY_tot;
     Zbar = qbar * Sref * CZ_tot;
@@ -603,25 +681,25 @@ else if (fi_flag == 0)  /* lofi lookup tables (do not include dlef) */
     Nbar = Cn_tot * qbar * Sref * bref;
     
     /* Derivatives */
-    u_body_dot = r_body * v_body - q_body * w_body 
-     + (Xbar + Thrust) / mass + 2*(q1*q3 - q0*q2)*g;
-    v_body_dot = p_body * w_body - r_body * u_body 
-     + Ybar / mass + 2*(q2*q3 + q0*q1)*g;
-    w_body_dot = q_body * u_body - p_body * v_body 
-     + Zbar / mass + (q0*q0 - q1*q1 - q2*q2 + q3*q3)*g;
+    u_body_dot = r_body * v_body - q_body * w_body
+            + (Xbar + Thrust) / mass + 2*(q1*q3 - q0*q2)*g;
+    v_body_dot = p_body * w_body - r_body * u_body
+            + Ybar / mass + 2*(q2*q3 + q0*q1)*g;
+    w_body_dot = q_body * u_body - p_body * v_body
+            + Zbar / mass + (q0*q0 - q1*q1 - q2*q2 + q3*q3)*g;
     
-    Vt_dot      = (u_body * u_body_dot + v_body * v_body_dot 
-     + w_body * w_body_dot) / Vt;
-    beta_dot    = (v_body_dot * Vt - v_body * Vt_dot) 
-     / (Vt * Vt * cos(beta));
-    alpha_dot   = (u_body * w_body_dot - w_body * u_body_dot) 
-     / (u_body * u_body + w_body * w_body);
-     
+    Vt_dot      = (u_body * u_body_dot + v_body * v_body_dot
+            + w_body * w_body_dot) / Vt;
+    beta_dot    = (v_body_dot * Vt - v_body * Vt_dot)
+    / (Vt * Vt * cos(beta));
+    alpha_dot   = (u_body * w_body_dot - w_body * u_body_dot)
+    / (u_body * u_body + w_body * w_body);
+    
     q0_dot      = 0.5 * (-p_body * q1 - q_body * q2 - r_body * q3);
     q1_dot      = 0.5 * ( p_body * q0 + r_body * q2 - q_body * q3);
     q2_dot      = 0.5 * ( q_body * q0 - r_body * q1 + p_body * q3);
     q3_dot      = 0.5 * ( r_body * q0 + q_body * q1 - p_body * q2);
-     
+    
     /* correction term from Moldy User锟絪 Manual by K. Refson */
     dq = q0 * q0_dot + q1 * q1_dot + q2 * q2_dot + q3 * q3_dot;
     
@@ -629,39 +707,45 @@ else if (fi_flag == 0)  /* lofi lookup tables (do not include dlef) */
     q1_dot -= dq * q1;
     q2_dot -= dq * q2;
     q3_dot -= dq * q3;
-      
-    p_body_dot  = (C1 * r_body + C2 * p_body) * q_body 
-     + C3 * Lbar + C4 * (Nbar + q_body * heng);
-    q_body_dot  = C5 * p_body * r_body 
-     - C6 * (p_body * p_body - r_body * r_body) 
-     + C7 * (Mbar - heng * r_body);
-    r_body_dot  = (C8 * p_body - C2 * r_body) * q_body 
-     + C4 * Lbar + C9 * (Nbar + q_body * heng);
-  
-    x_earth_dot = (q0*q0 + q1*q1 - q2*q2 - q3*q3) * u_body 
-     + 2*(q1*q2 - q0*q3) * v_body 
-     + 2*(q1*q3 + q0*q2) * w_body;
-    y_earth_dot = 2*(q1*q2 + q0*q3) * u_body 
-     + (q0*q0 - q1*q1 + q2*q2 - q3*q3) * v_body 
-     + 2*(q2*q3 - q0*q1) * w_body;
-    z_earth_dot = 2*(q1*q3 - q0*q2) * u_body 
-     + 2*(q2*q3 + q0*q1) * v_body 
-     + (q0*q0 - q1*q1 - q2*q2 + q3*q3) * w_body;
     
-    /* normal accelerations */ 
+    p_body_dot  = (C1 * r_body + C2 * p_body) * q_body
+            + C3 * Lbar + C4 * (Nbar + q_body * heng);
+    q_body_dot  = C5 * p_body * r_body
+            - C6 * (p_body * p_body - r_body * r_body)
+            + C7 * (Mbar - heng * r_body);
+    r_body_dot  = (C8 * p_body - C2 * r_body) * q_body
+            + C4 * Lbar + C9 * (Nbar + q_body * heng);
+    
+    x_earth_dot = (q0*q0 + q1*q1 - q2*q2 - q3*q3) * u_body
+            + 2*(q1*q2 - q0*q3) * v_body
+            + 2*(q1*q3 + q0*q2) * w_body;
+    y_earth_dot = 2*(q1*q2 + q0*q3) * u_body
+            + (q0*q0 - q1*q1 + q2*q2 - q3*q3) * v_body
+            + 2*(q2*q3 - q0*q1) * w_body;
+    z_earth_dot = 2*(q1*q3 - q0*q2) * u_body
+            + 2*(q2*q3 + q0*q1) * v_body
+            + (q0*q0 - q1*q1 - q2*q2 + q3*q3) * w_body;
+    
+    /* normal accelerations */
     ny = Ybar/mass/g;
-    nz = -Zbar/mass/g;    
+    nz = -Zbar/mass/g;
     
     free(temp);
     
 }   /* end mdlDerivatives */
 
-#endif 
+#endif
 
 
 /*===================================*/
 /* Function: mdlTerminate */
 /*===================================*/
+/* Function: mdlTerminate =====================================================
+ * Abstract:
+ *    In this function, you should perform any actions that are necessary
+ *    at the termination of a simulation.  For example, if memory was
+ *    allocated in mdlStart, this is the place to free it.
+ */
 static void mdlTerminate(SimStruct *S)
 {
 }

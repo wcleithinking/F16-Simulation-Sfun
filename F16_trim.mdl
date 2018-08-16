@@ -33,7 +33,7 @@ Model {
       UnitExpr		      "inherit"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.42"
+    ComputedModelVersion    "1.43"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -74,7 +74,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [1913.0, -7.0, 1934.0, 1054.0]
+      Location		      [-7.0, -7.0, 1550.0, 838.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -98,9 +98,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[2355.0, 1105.0]
-	ZoomFactor		[4.0]
-	Offset			[679.11333333333357, 328.94095238095224]
+	Extents			[1875.0, 835.0]
+	ZoomFactor		[2.5]
+	Offset			[551.91333333333364, 293.90095238095222]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -120,7 +120,7 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAAB4AP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAANQD///8AAAlgAAAElgAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAANQD///8AAAeAAAADiAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACR/////wAAAAAAAAAA/////wEAAAEE/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAGV/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAQV/////wAAAAAAAAAA/"
@@ -134,9 +134,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Wenchao Lei"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jul 15 16:56:34 2018"
-  RTWModifiedTimeStamp	  453572460
-  ModelVersionFormat	  "1.%<AutoIncrement:42>"
+  LastModifiedDate	  "Thu Aug 16 22:28:14 2018"
+  RTWModifiedTimeStamp	  456359290
+  ModelVersionFormat	  "1.%<AutoIncrement:43>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1092,7 +1092,7 @@ Model {
   }
   System {
     Name		    "F16_trim"
-    Location		    [1913, -7, 3847, 1047]
+    Location		    [-7, -7, 1543, 831]
     Open		    on
     PortBlocksUseCompactNotation off
     SetDomainSpec	    off
@@ -1107,14 +1107,14 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "400"
+    ZoomFactor		    "250"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "7"
+    SIDHighWatermark	    "8"
     Block {
       BlockType		      Inport
       Name		      "In1"
       SID		      "1"
-      Position		      [760, 368, 790, 382]
+      Position		      [700, 358, 730, 372]
       ZOrder		      -1
       IconDisplay	      "Port number"
     }
@@ -1122,7 +1122,7 @@ Model {
       BlockType		      Inport
       Name		      "In2"
       SID		      "2"
-      Position		      [760, 393, 790, 407]
+      Position		      [700, 383, 730, 397]
       ZOrder		      -2
       Port		      "2"
       IconDisplay	      "Port number"
@@ -1131,7 +1131,7 @@ Model {
       BlockType		      Inport
       Name		      "In3"
       SID		      "3"
-      Position		      [760, 418, 790, 432]
+      Position		      [700, 408, 730, 422]
       ZOrder		      -3
       Port		      "3"
       IconDisplay	      "Port number"
@@ -1140,8 +1140,8 @@ Model {
       BlockType		      S-Function
       Name		      "F-16 dynamics"
       SID		      "4"
-      Ports		      [3, 2]
-      Position		      [865, 362, 1000, 438]
+      Ports		      [3, 3]
+      Position		      [805, 352, 940, 428]
       ZOrder		      -4
       FunctionName	      "F16_dyn"
       Parameters	      "[100 0 14.74*pi/180, cos(14.74*pi/360) 0 sin(14.74*pi/360)  0, 0 0 0, 0 0 -5000 20]% the state"
@@ -1161,7 +1161,7 @@ Model {
       Name		      "SubSystem1"
       SID		      "5"
       Ports		      []
-      Position		      [901, 509, 975, 538]
+      Position		      [841, 499, 915, 528]
       ZOrder		      -5
       BackgroundColor	      "lightBlue"
       DropShadow	      on
@@ -1198,14 +1198,21 @@ Model {
       BlockType		      Terminator
       Name		      "Terminator"
       SID		      "6"
-      Position		      [1085, 410, 1105, 430]
+      Position		      [1020, 380, 1040, 400]
       ZOrder		      -6
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator1"
+      SID		      "8"
+      Position		      [1020, 405, 1040, 425]
+      ZOrder		      1
     }
     Block {
       BlockType		      Outport
       Name		      "Out1"
       SID		      "7"
-      Position		      [1085, 373, 1115, 387]
+      Position		      [1015, 358, 1045, 372]
       ZOrder		      -7
       IconDisplay	      "Port number"
     }
@@ -1242,6 +1249,13 @@ Model {
       SrcBlock		      "F-16 dynamics"
       SrcPort		      2
       DstBlock		      "Terminator"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      6
+      SrcBlock		      "F-16 dynamics"
+      SrcPort		      3
+      DstBlock		      "Terminator1"
       DstPort		      1
     }
   }
