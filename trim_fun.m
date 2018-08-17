@@ -107,7 +107,11 @@ q3 = 0;
 p = 0; 
 q = 0; 
 r = 0;
-pow = tgear(UX0(6));  % taken from Ying Huo's model
+if ( UX0(6) <= 0.77 )
+    pow = 64.94 * UX0(6);
+else
+    pow = 217.38 * UX0(6) - 117.38;
+end
  
 % Compute the derivatives: xdot
 tu = 0;

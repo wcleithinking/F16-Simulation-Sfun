@@ -261,22 +261,16 @@
 static void mdlInitializeSizes(SimStruct *S)
 {
     ssSetNumSFcnParams(S, 1);  /* Number of expected parameters */
-    if (ssGetNumSFcnParams(S) != ssGetSFcnParamsCount(S)) {
-        return;
-    }
     
     ssSetNumContStates(S, 14);  // 连续状态数目：14个
     ssSetNumDiscStates(S, 0);   // 离散状态数目：0个
     
-    if (!ssSetNumInputPorts(S, 3)) return;   // 三个输入端口
+    ssSetNumInputPorts(S, 3);   // 三个输入端口
     ssSetInputPortWidth(S, 0, 4);   // 4维
     ssSetInputPortWidth(S, 1, 1);   // 1维
     ssSetInputPortWidth(S, 2, 1);   // 1维
     
-    // ssSetInputPortRequiredContiguous(S, 0, true);
-    // ssSetInputPortDirectFeedThrough(S, 0, 1);
-    
-    if (!ssSetNumOutputPorts(S, 3)) return;  // 输出端口个数
+    ssSetNumOutputPorts(S, 3);  // 输出端口个数
     ssSetOutputPortWidth(S, 0, 14); // 14维
     ssSetOutputPortWidth(S, 1, 2);  // 2维
     ssSetOutputPortWidth(S, 2, 6);
